@@ -37,6 +37,7 @@ export const getPosts = () => {
       formattedData,
       content
     };
-  });
+  })
+  .filter((post) => post !== null);
   return posts;
 };
