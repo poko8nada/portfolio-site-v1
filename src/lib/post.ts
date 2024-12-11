@@ -3,10 +3,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 export type Post = {
-  title: string;
-  date: string;
+  slug: string;
+  formattedData: {
+    title: string;
+    createdAt: string;
+    updatedAt: string;
+    thumbnail: string;
+  };
   content: string;
-};
+}
 
 export const getPosts = () => {
   const postsDir = path.join(process.cwd(), '/src/posts');

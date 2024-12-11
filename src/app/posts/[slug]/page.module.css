@@ -1,0 +1,8 @@
+.article_container {
+
+}
+
+.article_container p {
+  word-break: break-all;
+  line-height: 1.7;
+}

@@ -26,7 +26,6 @@ export default () => {
                   style={{ objectFit: 'cover' }}
                   width={160}
                   height={160}
-                  layout="intrinsic"
                   sizes="(max-width: 400px)  160px, 200px"
                 />
               </Link>
