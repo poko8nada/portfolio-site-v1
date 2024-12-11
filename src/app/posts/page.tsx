@@ -8,7 +8,7 @@ export default () => {
   const allPosts = getPosts();
   return (
     <>
-      <div style={{ textAlign: 'center' }}>
+      <div className={styles.post_header}>
         <p>webディレクター兼エンジニア兼マーケターの雑記です。</p>
       </div>
       <div>
@@ -20,14 +20,16 @@ export default () => {
                   <p>{formattedData.title}</p>
                   <small>{formattedData.createdAt}</small>
                 </div>
-                <Image
-                  src={formattedData.thumbnail}
-                  alt={''}
-                  style={{ objectFit: 'cover' }}
-                  width={160}
-                  height={160}
-                  sizes="(max-width: 400px)  160px, 200px"
-                />
+                <div className={styles.img_container}>
+                  <Image
+                    src={formattedData.thumbnail}
+                    alt={''}
+                    style={{ objectFit: 'cover' }}
+                    width={80}
+                    height={80}
+                    sizes="(max-width: 400px)  60px, 80px"
+                  />
+                </div>
               </Link>
             </article>
           );

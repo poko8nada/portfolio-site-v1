@@ -34,7 +34,7 @@ export const getPosts = () => {
       title : String(data.title),
       createdAt: data.createdAt.toISOString().slice(0,10) as string ,
       updatedAt: data.updatedAt.toISOString().slice(0,10) as string ,
-      thumbnail: data.thumbnail ? String(data.thumbnail) : '/images/defaultThumbnail.png'
+      thumbnail: data.thumbnail ? String(data.thumbnail) : '/images/pencil01.svg'
     };
 
     return {
