@@ -1,0 +1,9 @@
+.main{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 5px;
+}
+
+.main a:hover{
+  text-decoration: underline;
+}

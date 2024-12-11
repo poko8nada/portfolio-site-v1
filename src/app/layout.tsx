@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import styles from './layout.module.css';
 import Header from '@/src/components/header/page';
 import Footer from '@/src/components/footer/page';
+import Main from '@/src/components/main/page';
 
 export const metadata: Metadata = {
   title: 'PokoHanada | blog',
@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="ja">
       <body>
         <Header />
-        <main className={styles.main}>{children}</main>
+        <Main>{children}</Main>
         <Footer />
       </body>
     </html>
