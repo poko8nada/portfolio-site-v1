@@ -1,8 +1,25 @@
-.article_container {
-
+.article_container{
+  width: 100%;
+  max-width: 820px;
+  padding: 0 20px;
+  margin: 0 auto !important;
+  line-height: 1.8 !important;
 }
 
-.article_container p {
-  word-break: break-all;
-  line-height: 1.7;
+.article_container h1,
+.article_container h2,
+.article_container h3,
+.article_container h4,
+.article_container h5,
+.article_container h6,
+.article_container p,
+.article_container ul,
+.article_container ol,
+.article_container dl,
+.article_container table,
+.article_container pre,
+.article_container blockquote,
+.article_container figure,
+.article_container hr {
+  margin-bottom: 24px !important;
 }

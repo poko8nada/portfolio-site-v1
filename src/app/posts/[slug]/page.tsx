@@ -2,6 +2,7 @@ import { getPosts, type Post } from '@/src/lib/post';
 import Markdown from 'react-markdown';
 import style from './page.module.css';
 import { notFound } from 'next/navigation';
+import 'github-markdown-css';
 
 const allPosts: Post[] = getPosts();
 // console.log(allPosts);
@@ -22,7 +23,7 @@ export default async function Page({
     return notFound();
   }
   return (
-    <div className={style.article_container}>
+    <div className={`${style.article_container} markdown-body`}>
       <div>ttttt</div>
       <Markdown>{content}</Markdown>
     </div>
