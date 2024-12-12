@@ -3,8 +3,8 @@
 	flex-direction: column;
 	/* justify-content: center; */
 	align-items: center;
-	padding: 20px;
-	margin-bottom: 30px;
+	padding: 16px;
+	margin-bottom: 16px;
 }
 
 .header_logo {
@@ -13,13 +13,13 @@
 
 .header_logo img {
 	margin-bottom: 1rem;
-	width: 180px;
-	height: 180px;
+	width: 120px;
+	height: 120px;
 	object-fit: cover;
 	border-radius: 50%;
 }
 
 .header_logo h1 {
 	text-align: center;
-	font-size: 2rem;
+	font-size: 1.5rem;
 }
