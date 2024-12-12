@@ -1,27 +1,25 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/src/components/header/page';
 import Footer from '@/src/components/footer/page';
-import Main from '@/src/components/main/page';
 
 export const metadata: Metadata = {
-  title: 'PokoHanada | blog',
+  title: 'Poko Hanada Web | freelance Web developer',
   description:
-    'Webアプリケーション開発、フロントエンド開発、ディレクション、マーケティングを得意とするWebエンジニアです。',
+    'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
   keywords:
-    'Webエンジニア, ポートフォリオ, React, Next.js, JavaScript, HTML, CSS',
+    'Webエンジニア, Web開発, フロントエンド, Webアプリケーション, ポートフォリオ, React, Next.js, TypeScript, JavaScript, HTML, CSS',
   openGraph: {
-    title: '花田ぽこ | Webエンジニアのポートフォリオ',
+    title: 'Poko Hanada Web | freelance Web developer',
     description:
-      'Webアプリケーション開発、フロントエンド開発、ディレクション、マーケティングを得意とするWebエンジニアです。',
+      'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
     // url: 'https://your-domain.com',  // 自分のドメインに置き換えてください
     // images: '/ogp.jpg', // OG画像のパス
   },
   twitter: {
     // card: 'summary_large_image',
-    title: 'PokoHanada | blog',
+    title: 'Poko Hanada Web | freelance Web developer',
     description:
-      'Webアプリケーション開発、フロントエンド開発、ディレクション、マーケティングを得意とするWebエンジニアです。',
+      'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
     // images: '/ogp.jpg',
   },
 };

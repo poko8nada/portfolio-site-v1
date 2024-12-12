@@ -8,7 +8,7 @@ export default () => {
     <header className={`${styles.header} ${nunito.className}`}>
       <div className={styles.header_logo}>
         <img src="/images/profile01.jpeg" alt="" width="180px" height="auto" />
-        <h1>Poko blog</h1>
+        <h1>PokoHanadaWeb</h1>
       </div>
     </header>
   );

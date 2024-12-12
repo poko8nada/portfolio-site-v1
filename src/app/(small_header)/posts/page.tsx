@@ -1,8 +1,13 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './posts.module.css';
 
 import { getPosts } from '@/src/lib/post';
+
+export const metadata: Metadata = {
+  title: 'blog | Poko Hanada Web',
+};
 
 export default () => {
   const allPosts = getPosts();

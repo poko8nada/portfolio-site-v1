@@ -7,6 +7,13 @@ import 'github-markdown-css';
 
 const allPosts: Post[] = getPosts();
 
+export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+  const post = allPosts.find((post) => post.slug === params.slug);
+  return {
+    title: `${post?.formattedData.title} | poko hanada web`,
+  };
+};
+
 export const generateStaticParams = () => {
   return allPosts.map(({ slug }) => {
     return { slug };

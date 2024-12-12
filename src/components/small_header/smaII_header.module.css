@@ -7,11 +7,12 @@
 	margin-bottom: 16px;
 }
 
-.header_logo {
+.header_logo * {
 	margin: 0 auto;
 }
 
 .header_logo img {
+	display: block;
 	margin-bottom: 1rem;
 	width: 120px;
 	height: 120px;
