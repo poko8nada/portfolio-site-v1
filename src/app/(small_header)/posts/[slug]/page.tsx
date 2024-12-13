@@ -1,10 +1,8 @@
 import PostHeader from '@/src/components/post_header/page';
 import PostFooter from '@/src/components/post_footer/page';
+import PostBody from '@/src/components/post_body/page';
 import { getPosts, type Post } from '@/src/lib/post';
-import Markdown from 'react-markdown';
-import styles from './page.module.css';
 import { notFound } from 'next/navigation';
-import 'github-markdown-css';
 
 const allPosts: Post[] = getPosts();
 
@@ -41,9 +39,7 @@ export default async function Page({
   return (
     <>
       <PostHeader post={post} />
-      <article className={`${styles.article_container} markdown-body`}>
-        <Markdown>{content}</Markdown>
-      </article>
+      <PostBody content={content} />
       <PostFooter prevPost={prevPost} nextPost={nextPost} />
     </>
   );
