@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import PostHeader from '@/src/components/post_header/page';
+import PostFooter from '@/src/components/post_footer/page';
 import { getPosts, type Post } from '@/src/lib/post';
 import Markdown from 'react-markdown';
 import styles from './page.module.css';
@@ -28,32 +29,22 @@ export default async function Page({
   const slug = (await params).slug;
   const post = allPosts.find((post) => post.slug === slug);
   const content = post?.content;
-  const title = post?.formattedData.title;
-  const createdAt = post?.formattedData.createdAt;
-  const thumbnail = post?.formattedData.thumbnail;
 
-  if (!content || !title || !createdAt) {
+  if (!content) {
     return notFound();
   }
+
+  const postIndex = allPosts.findIndex((post) => post.slug === slug);
+  const prevPost = allPosts[postIndex - 1];
+  const nextPost = allPosts[postIndex + 1];
+
   return (
-    <div>
-      <div className={styles.article_header}>
-        <h2>{title}</h2>
-        <div className={styles.img_container}>
-          <Image
-            src={thumbnail ? thumbnail : '/images/defaultThumbnail.png'}
-            alt={''}
-            style={{ objectFit: 'cover' }}
-            width={80}
-            height={80}
-            sizes="(max-width: 400px)  60px, 80px"
-          />
-        </div>
-        <p>Created at {createdAt}</p>
-      </div>
-      <div className={`${styles.article_container} markdown-body`}>
+    <>
+      <PostHeader post={post} />
+      <article className={`${styles.article_container} markdown-body`}>
         <Markdown>{content}</Markdown>
-      </div>
-    </div>
+      </article>
+      <PostFooter prevPost={prevPost} nextPost={nextPost} />
+    </>
   );
 }

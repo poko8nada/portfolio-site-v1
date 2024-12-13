@@ -1,0 +1,31 @@
+.article_footer {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+.article_footer a {
+	position: relative;
+	color: #0070f3;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 15em;
+	padding: .5em .8em;
+	white-space: nowrap;
+}
+
+.prev::before {
+	position: absolute;
+	content: "< ";
+	top: .38em;
+	left: 0;
+}
+
+.next::after {
+	position: absolute;
+	content: " >";
+	top: .38em;
+	right: 0;
+}
