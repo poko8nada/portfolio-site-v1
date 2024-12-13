@@ -6,7 +6,7 @@
 
 .post_container {
 	width: 100%;
-	max-width: 800px;
+	max-width: 640px;
 	min-width: 360px;
 	padding: .5em 1rem;
 	margin: 0 auto;
@@ -14,6 +14,7 @@
 
 .img_container {
 	background: #cac9c9;
+	filter: contrast(0.7);
 	padding: 24px;
 	border-radius: 12px;
 }
@@ -40,8 +41,9 @@
 .text p {
 	word-break: break-all;
 	font-size: 1.1rem;
+	line-height: 1.6;
+	margin-bottom: .5rem;
 }
 .text small {
-	margin-top: .5rem;
 	color: #9a9a9a;
 }
