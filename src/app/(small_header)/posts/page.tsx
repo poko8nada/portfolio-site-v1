@@ -1,20 +1,15 @@
 import type { Metadata } from 'next';
 import PostsCard from '@/src/components/posts_card/page';
 
-import { getPosts } from '@/src/lib/post';
+import { getAllPosts } from '@/src/lib/post';
+
 
 export const metadata: Metadata = {
   title: 'blog | Poko Hanada Web',
 };
 
-export async function generateStaticParams() {
-  const posts = getPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
 export default () => {
-  const allPosts = getPosts();
+  const allPosts = getAllPosts();
   return (
     <>
       <div

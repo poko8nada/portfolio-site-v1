@@ -1,11 +1,10 @@
-import SmallHeader from '@/src/components/small_header/page';
-import Footer from '@/src/components/footer/page';
+import Header from '@/src/components/header/page';
 import Main from '@/src/components/main/page';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <SmallHeader />
+      <Header imgSize={120} fontSize={1.5} />
       <Main>{children}</Main>
     </>
   );

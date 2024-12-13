@@ -13,7 +13,7 @@ export type Post = {
   content: string;
 }
 
-export const getPosts = () => {
+export const getAllPosts = () => {
   const postsDir = path.join(process.cwd(), '/src/posts');
   const files = fs.readdirSync(postsDir);
   const posts = files
@@ -44,5 +44,11 @@ export const getPosts = () => {
       };
     })
     .filter((post) => post !== null);
+
   return posts;
+};
+
+export const getTopPosts = () => {
+  const posts = getAllPosts();
+  return posts.slice(0, 3);
 };

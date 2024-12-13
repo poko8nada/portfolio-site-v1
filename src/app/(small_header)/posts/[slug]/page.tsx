@@ -1,10 +1,10 @@
 import PostHeader from '@/src/components/post_header/page';
 import PostFooter from '@/src/components/post_footer/page';
 import PostBody from '@/src/components/post_body/page';
-import { getPosts, type Post } from '@/src/lib/post';
+import { getAllPosts, type Post } from '@/src/lib/post';
 import { notFound } from 'next/navigation';
 
-const allPosts: Post[] = getPosts();
+const allPosts: Post[] = getAllPosts();
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post.slug === params.slug);

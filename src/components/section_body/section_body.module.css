@@ -1,9 +1,9 @@
-.footer {
+.section_container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 20px;
-	font-size: .8rem;
-	margin: 30px auto 0;
+	padding: 16px 2px;
+	margin: 14px 0 64px;
+	min-height: 160px;
 }

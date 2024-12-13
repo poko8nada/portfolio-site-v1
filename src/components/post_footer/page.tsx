@@ -14,14 +14,14 @@ export default ({
       <div>
         {prevPostSlug && (
           <Link href={`/posts/${prevPostSlug}`} className={styles.prev}>
-            {prevPostTitle}
+            <span>{prevPostTitle}</span>
           </Link>
         )}
       </div>
       <div>
         {nextPostSlug && (
           <Link href={`/posts/${nextPostSlug}`} className={styles.next}>
-            {nextPostTitle}
+            <span>{nextPostTitle}</span>
           </Link>
         )}
       </div>

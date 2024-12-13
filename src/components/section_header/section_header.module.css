@@ -1,0 +1,8 @@
+.header_container {
+	text-align: center;
+	width: 100%;
+	max-width: 640px;
+	min-width: 360px;
+	padding: 1em 1rem;
+	margin: 0 auto;
+}
