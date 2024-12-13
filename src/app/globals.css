@@ -1,6 +1,9 @@
 :root {
-	--background: #ffffff;
-	--foreground: #252424;
+	/* デフォルトをダークテーマに設定 */
+	/* --background: #ffffff;
+	--foreground: #252424; */
+	--background: #080a1d;
+	--foreground: #e4e4e4;
 }
 
 @media (prefers-color-scheme: dark) {
