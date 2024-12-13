@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import styles from './posts.module.css';
-import PostThumbnail from '@/src/components/ui/post_thumbnail/page';
+import PostsCard from '@/src/components/posts_card/page';
 
 import { getPosts } from '@/src/lib/post';
 
@@ -27,15 +25,7 @@ export default () => {
       <div>
         {allPosts.map(({ slug, formattedData }) => {
           return (
-            <article key={slug} className={styles.post_container}>
-              <Link href={`/posts/${slug}`} className={styles.post}>
-                <div className={styles.text}>
-                  <p>{formattedData.title}</p>
-                  <small>{formattedData.createdAt}</small>
-                </div>
-                <PostThumbnail thumbnail={formattedData.thumbnail} size={50} />
-              </Link>
-            </article>
+            <PostsCard key={slug} slug={slug} formattedData={formattedData} />
           );
         })}
       </div>
