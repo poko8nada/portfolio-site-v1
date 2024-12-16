@@ -16,6 +16,8 @@ export default ({
           width={imgSize}
           height={imgSize}
           alt=""
+          priority
+          placeholder="empty"
         />
         <h1 style={{ fontSize: `${fontSize}rem` }}>PokoHanadaCom</h1>
       </div>

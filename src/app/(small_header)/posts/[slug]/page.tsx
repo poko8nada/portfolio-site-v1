@@ -8,11 +8,14 @@ import SectionBody from '@/src/components/section_body/page';
 
 const allPosts: Post[] = getAllPosts();
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post.slug === params.slug);
+export const generateMetadata = async ({
+  params,
+}: { params: { slug: string } }) => {
+  const slug = (await params).slug;
+  const post = allPosts.find((post) => post.slug === slug);
   return {
     title: `${post?.formattedData.title} | pokoHanadaCom`,
-    canonical: `https://example.com/posts/${params.slug}`, // 自分のドメインに置き換えてください
+    canonical: `https://example.com/posts/${slug}`, // 自分のドメインに置き換えてください
   };
 };
 
