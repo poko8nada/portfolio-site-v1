@@ -13,15 +13,15 @@ export const metadata: Metadata = {
     title: 'pokoHanadaCom | freelance Web developer',
     description:
       'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
-    // url: 'https://your-domain.com',  // 自分のドメインに置き換えてください
-    // images: '/ogp.jpg', // OG画像のパス
+    type: 'website',
+    url: 'https://your-domain.com', // 自分のドメインに置き換えてください
+    images: '/images/profile01.png',
   },
   twitter: {
-    // card: 'summary_large_image',
+    card: 'summary',
     title: 'pokoHanadaCom | freelance Web developer',
     description:
       'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
-    // images: '/ogp.jpg',
   },
 };
 

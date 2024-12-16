@@ -12,6 +12,7 @@ export default function Home() {
       <SectionBody>
         <SectionHeader>about</SectionHeader>
         <p>webディレクター兼エンジニア兼マーケターです。</p>
+        <p>webディベロッパーでもあります。</p>
         <div style={{ display: 'flex', gap: '1.5em', marginTop: '1rem' }}>
           <Link
             style={{

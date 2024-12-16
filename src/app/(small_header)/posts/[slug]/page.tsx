@@ -16,6 +16,18 @@ export const generateMetadata = async ({
   return {
     title: `${post?.formattedData.title} | pokoHanadaCom`,
     canonical: `https://example.com/posts/${slug}`, // 自分のドメインに置き換えてください
+    openGraph: {
+      title: `${post?.formattedData.title} | pokoHanadaCom`,
+      description: post?.formattedData.title,
+      type: 'article',
+      url: `https://example.com/posts/${slug}`, // 自分のドメインに置き換えてください
+      images: '/images/profile01.png',
+    },
+    twitter: {
+      card: 'summary',
+      title: `${post?.formattedData.title} | pokoHanadaCom`,
+      description: post?.formattedData.title,
+    },
   };
 };
 
