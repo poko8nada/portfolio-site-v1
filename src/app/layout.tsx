@@ -3,13 +3,14 @@ import './globals.css';
 import Footer from '@/src/components/footer/page';
 
 export const metadata: Metadata = {
-  title: 'Poko Hanada Web | freelance Web developer',
+  title: 'pokoHanadaCom | freelance Web developer',
   description:
     'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
-  keywords:
-    'Webエンジニア, Web開発, フロントエンド, Webアプリケーション, ポートフォリオ, React, Next.js, TypeScript, JavaScript, HTML, CSS',
+  alternates: {
+    canonical: 'https://example.com', // 自分のドメインに置き換えてください
+  },
   openGraph: {
-    title: 'Poko Hanada Web | freelance Web developer',
+    title: 'pokoHanadaCom | freelance Web developer',
     description:
       'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
     // url: 'https://your-domain.com',  // 自分のドメインに置き換えてください
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     // card: 'summary_large_image',
-    title: 'Poko Hanada Web | freelance Web developer',
+    title: 'pokoHanadaCom | freelance Web developer',
     description:
       'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
     // images: '/ogp.jpg',

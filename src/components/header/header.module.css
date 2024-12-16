@@ -5,6 +5,7 @@
 	align-items: center;
 	padding: 20px;
 	margin: 0 auto 30px;
+	background: linear-gradient(0deg, var(--background) 60%, #0d1d78);
 }
 
 .header_logo * {

@@ -4,7 +4,7 @@ import Main from '@/src/components/main/page';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header imgSize={120} fontSize={1.5} />
+      <Header imgSize={110} fontSize={1.4} />
       <Main>{children}</Main>
     </>
   );

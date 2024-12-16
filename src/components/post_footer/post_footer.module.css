@@ -1,9 +1,10 @@
 .article_footer {
 	display: flex;
 	justify-content: space-between;
-	margin: 0 auto;
+	margin: 24px auto 0;
 	padding: 1rem;
 	max-width: 820px;
+	width: 100%;
 }
 
 .article_footer a {

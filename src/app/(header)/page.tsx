@@ -12,10 +12,10 @@ export default function Home() {
       <SectionBody>
         <SectionHeader>about</SectionHeader>
         <p>webディレクター兼エンジニア兼マーケターです。</p>
-        <div style={{ display: 'flex', gap: '1.25em', marginTop: '1rem' }}>
+        <div style={{ display: 'flex', gap: '1.5em', marginTop: '1rem' }}>
           <Link
             style={{
-              borderRadius: '22%',
+              borderRadius: '20%',
               overflow: 'hidden',
               padding: '.7rem',
               background: '#1b2da3',
@@ -23,11 +23,11 @@ export default function Home() {
             href="https://x.com/you88451h"
             target="_blank"
           >
-            <Image src="/images/x-logo.svg" alt="" width={30} height={30} />
+            <Image src="/images/x-logo.svg" alt="" width={28} height={28} />
           </Link>
           <Link
             style={{
-              borderRadius: '22%',
+              borderRadius: '20%',
               overflow: 'hidden',
               padding: '.7rem',
               background: '#1b2da3',
