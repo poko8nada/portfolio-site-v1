@@ -1,23 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-// ↓↓静的ビルドする場合はコメントを外す
-  // output: 'export',
-  // trailingSlash: true,
-// ↑↑静的ビルドする場合はコメントを外す
-  images: {
-    domains: ['picsum.photos'],
-  },
+  // ↓↓静的ビルドする場合はコメントを外す
+  output: 'export',
+  trailingSlash: true,
+  images: { unoptimized: true },
+  // ↑↑静的ビルドする場合はコメントを外す
+
   // async redirects() {
-    //     return [
-    //       {
-    //         source: '/',
-    //         destination: '/posts',
-    //         permanent: false,
-    //       },
-    //     ]
-    //   },
+  //     return [
+  //       {
+  //         source: '/',
+  //         destination: '/posts',
+  //         permanent: false,
+  //       },
+  //     ]
+  //   },
 };
 
 module.exports = nextConfig

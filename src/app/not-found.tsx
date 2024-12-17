@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import SectionBody from '@/src/components/section_body/page';
 export default function NotFound() {
   return (
-    <div style={{ textAlign: 'center', lineHeight: '1.5', marginTop: '5rem' }}>
+    <SectionBody>
       <h2>Not Found</h2>
       <p>Could not find requested resource</p>
       <Link
@@ -10,6 +11,6 @@ export default function NotFound() {
       >
         Return Home
       </Link>
-    </div>
+    </SectionBody>
   );
 }

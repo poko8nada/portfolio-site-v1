@@ -8,10 +8,26 @@ import SectionBody from '@/src/components/section_body/page';
 
 const allPosts: Post[] = getAllPosts();
 
-export const generateMetadata = async ({
+export function generateStaticParams() {
+  if (allPosts.length === 0) {
+    return [{ slug: '404' }];
+  }
+  return allPosts.map(({ slug }) => {
+    return { slug };
+  });
+}
+
+export async function generateMetadata({
   params,
-}: { params: { slug: string } }) => {
+}: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
+
+  if (slug === '404') {
+    return {
+      title: '404 | pokoHanadaCom',
+    };
+  }
+
   const post = allPosts.find((post) => post.slug === slug);
   return {
     title: `${post?.formattedData.title} | pokoHanadaCom`,
@@ -29,13 +45,7 @@ export const generateMetadata = async ({
       description: post?.formattedData.title,
     },
   };
-};
-
-export const generateStaticParams = () => {
-  return allPosts.map(({ slug }) => {
-    return { slug };
-  });
-};
+}
 
 export default async function Page({
   params,
@@ -46,7 +56,8 @@ export default async function Page({
   const post = allPosts.find((post) => post.slug === slug);
   const content = post?.content;
 
-  if (!content) {
+  if (!content || slug === '404') {
+    console.log(`${slug} ${content}`);
     return notFound();
   }
 

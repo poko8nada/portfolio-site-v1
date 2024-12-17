@@ -47,14 +47,20 @@ export default function Home() {
       </SectionBody>
       <SectionBody>
         <SectionHeader>recent posts</SectionHeader>
-        {topPosts.map(({ slug, formattedData }) => {
-          return (
-            <PostsCard key={slug} slug={slug} formattedData={formattedData} />
-          );
-        })}
-        <div style={{ marginTop: '2rem' }}>
-          <Button href="/posts">read more</Button>
-        </div>
+        {topPosts.length === 0 ? (
+          <p style={{ padding: '1rem' }}>Under construction ...</p>
+        ) : (
+          topPosts.map(({ slug, formattedData }) => {
+            return (
+              <PostsCard key={slug} slug={slug} formattedData={formattedData} />
+            );
+          })
+        )}
+        {topPosts.length > 3 && (
+          <div style={{ marginTop: '2rem' }}>
+            <Button href="/posts">read more</Button>
+          </div>
+        )}
       </SectionBody>
       <SectionBody>
         <SectionHeader>works</SectionHeader>

@@ -18,11 +18,15 @@ export default () => {
         >
           <p>webディレクター兼エンジニア兼マーケターの雑記です。</p>
         </div>
-        {allPosts.map(({ slug, formattedData }) => {
-          return (
-            <PostsCard key={slug} slug={slug} formattedData={formattedData} />
-          );
-        })}
+        {allPosts.length === 0 ? (
+          <p style={{ padding: '1rem' }}>Under construction ...</p>
+        ) : (
+          allPosts.map(({ slug, formattedData }) => {
+            return (
+              <PostsCard key={slug} slug={slug} formattedData={formattedData} />
+            );
+          })
+        )}
       </SectionBody>
     </>
   );
