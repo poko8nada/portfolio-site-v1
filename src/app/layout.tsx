@@ -1,20 +1,21 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Footer from '@/src/components/footer/page';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: 'pokoHanadaCom | freelance Web developer',
   description:
     'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
   alternates: {
-    canonical: 'https://example.com', // 自分のドメインに置き換えてください
+    canonical: 'https://pokohanada.com/',
   },
   openGraph: {
     title: 'pokoHanadaCom | freelance Web developer',
     description:
       'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
     type: 'website',
-    url: 'https://your-domain.com', // 自分のドメインに置き換えてください
+    url: 'https://pokohanada.com/',
     images: '/images/profile01.png',
   },
   twitter: {
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body>
         {children}
         <Footer />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID as string} />
       </body>
     </html>
   );

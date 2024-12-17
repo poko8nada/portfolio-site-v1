@@ -9,6 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@next/third-parties": "^15.1.0",
 		"github-markdown-css": "^5.8.1",
 		"gray-matter": "^4.0.3",
 		"next": "15.0.3",

@@ -31,12 +31,12 @@ export async function generateMetadata({
   const post = allPosts.find((post) => post.slug === slug);
   return {
     title: `${post?.formattedData.title} | pokoHanadaCom`,
-    canonical: `https://example.com/posts/${slug}`, // 自分のドメインに置き換えてください
+    canonical: `https://pokohanada.com//posts/${slug}`,
     openGraph: {
       title: `${post?.formattedData.title} | pokoHanadaCom`,
       description: post?.formattedData.title,
       type: 'article',
-      url: `https://example.com/posts/${slug}`, // 自分のドメインに置き換えてください
+      url: `https://pokohanada.com//posts/${slug}`,
       images: '/images/profile01.png',
     },
     twitter: {
