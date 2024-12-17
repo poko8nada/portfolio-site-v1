@@ -16,9 +16,9 @@ export default function Home() {
         <div style={{ display: 'flex', gap: '1.5em', marginTop: '1rem' }}>
           <Link
             style={{
-              borderRadius: '20%',
+              borderRadius: '16%',
               overflow: 'hidden',
-              padding: '.7rem',
+              padding: '.85rem .7rem .6rem',
               background: '#1b2da3',
             }}
             href="https://x.com/you88451h"
@@ -28,7 +28,7 @@ export default function Home() {
           </Link>
           <Link
             style={{
-              borderRadius: '20%',
+              borderRadius: '16%',
               overflow: 'hidden',
               padding: '.7rem',
               background: '#1b2da3',

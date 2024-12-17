@@ -2,13 +2,13 @@
 	/* デフォルトをダークテーマに設定 */
 	/* --background: #ffffff;
 	--foreground: #252424; */
-	--background: #080a1d;
+	--background: #02030b;
 	--foreground: #e4e4e4;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background: #080a1d;
+		--background: #02030b;
 		--foreground: #e4e4e4;
 	}
 }
@@ -26,10 +26,10 @@ body {
 	/* background: var(--background); */
 	background-image: linear-gradient(
 		120deg,
-		rgba(36, 175, 68, 1) 10%,
-		rgba(46, 64, 196, 1) 26%,
-		rgba(22, 35, 128, 1) 46%,
-		rgba(12, 33, 77, 1) 69%
+		rgba(36, 175, 68, 1) 15%,
+		rgba(46, 64, 196, 1) 32%,
+		rgb(18, 28, 100) 46%,
+		rgba(12, 33, 77, 1) 65%
 	);
 	background-position: center center;
 	background-size: cover;

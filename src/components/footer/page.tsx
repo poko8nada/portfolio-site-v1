@@ -6,7 +6,7 @@ export default () => {
       <p>
         &copy; {currentYear}{' '}
         <a href="/" style={{ color: '#0070f3', textDecoration: 'underline' }}>
-          PokoHanada Com
+          PokoHanadaCom
         </a>
       </p>
     </footer>
