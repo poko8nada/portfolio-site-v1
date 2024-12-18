@@ -3,7 +3,7 @@
 	width: 100%;
 	max-width: 820px;
 
-	padding: 30px 20px;
+	padding: 30px 16px;
 	margin: 0 auto !important;
 	line-height: 1.8 !important;
 	background: var(--background) !important;
@@ -15,7 +15,18 @@
 .article_container h3,
 .article_container h4,
 .article_container h5,
-.article_container h6,
+.article_container h6 {
+	margin: 52px 0 16px !important;
+}
+
+.article_container h1 + h2,
+.article_container h2 + h3,
+.article_container h3 + h4,
+.article_container h4 + h5,
+.article_container h5 + h6 {
+	margin: 16px 0 !important;
+}
+
 .article_container p,
 .article_container ul,
 .article_container ol,

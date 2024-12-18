@@ -70,7 +70,9 @@ export default async function Page({
       <SectionBody>
         <PostHeader post={post} />
         <PostBody content={content} />
-        <PostFooter prevPost={prevPost} nextPost={nextPost} />
+        {allPosts.length <= 1 ? null : (
+          <PostFooter prevPost={prevPost} nextPost={nextPost} />
+        )}
       </SectionBody>
     </>
   );
