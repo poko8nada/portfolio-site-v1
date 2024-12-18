@@ -2,14 +2,19 @@
 	"name": "portfolio-site-v1",
 	"version": "0.1.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
-		"dev": "next dev",
+		"dev:next": "next dev",
+		"dev:server": "node server.js",
+		"dev": "npm run dev:server & npm run dev:next",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint"
 	},
 	"dependencies": {
 		"@next/third-parties": "^15.1.0",
+		"chokidar": "^4.0.2",
+		"express": "^4.21.2",
 		"github-markdown-css": "^5.8.1",
 		"gray-matter": "^4.0.3",
 		"next": "15.0.3",
