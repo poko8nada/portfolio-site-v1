@@ -31,13 +31,13 @@ export async function generateMetadata({
   const post = allPosts.find((post) => post.slug === slug);
   return {
     title: `${post?.formattedData.title} | pokoHanadaCom`,
-    canonical: `https://pokohanada.com//posts/${slug}`,
+    canonical: `https://pokohanada.com/posts/${slug}`,
     openGraph: {
       title: `${post?.formattedData.title} | pokoHanadaCom`,
       description: post?.formattedData.title,
       type: 'article',
-      url: `https://pokohanada.com//posts/${slug}`,
-      images: '/images/profile01.png',
+      url: `https://pokohanada.com/posts/${slug}`,
+      images: 'https://pokohanada.com/images/profile01.png',
     },
     twitter: {
       card: 'summary',
