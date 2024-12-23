@@ -26,6 +26,10 @@ export const getAllPosts = () => {
       )
       const { data, content } = matter(markdownWithMeta);
 
+      if (process.env.NODE_ENV === 'development' && data.title === 'blog-format') {
+        data.isPublished = true;
+      }
+
       if (!data.isPublished || !data.title || !data.createdAt || !data.updatedAt) {
         return null;
       }
