@@ -16,7 +16,7 @@
 .article_container h4,
 .article_container h5,
 .article_container h6 {
-	margin: 52px 0 16px;
+	margin: 60px 0 16px;
 }
 
 .article_container h1 + h2,
@@ -36,7 +36,20 @@
 .article_container blockquote,
 .article_container figure,
 .article_container hr {
-	margin-bottom: 24px;
+	margin-bottom: 22px;
+}
+
+.article_container img {
+	display: block;
+}
+
+.article_container pre,
+.article_container p:has(> img) {
+	margin-bottom: 46px;
+}
+
+.article_container pre:has(+ pre) {
+	margin-bottom: 22px;
 }
 
 .article_container pre:has(div > code),
@@ -45,4 +58,11 @@
 	background: none;
 	border-radius: 6px;
 	padding: 0 !important;
+}
+
+.article_container p > img {
+	margin: 0 auto;
+	max-width: 460px;
+	width: 100%;
+	border-radius: 8px;
 }

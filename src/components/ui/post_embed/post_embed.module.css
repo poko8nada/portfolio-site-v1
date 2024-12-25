@@ -15,9 +15,10 @@
 
 .link_card img {
 	display: block;
-	object-fit: cover;
-	width: 120px;
-	height: 100px;
+	object-fit: contain;
+	max-width: 140px;
+	height: 96px;
+	background: #000;
 }
 
 .link_card div {
@@ -47,11 +48,11 @@
 }
 
 .link_amazon {
-	max-width: 380px;
+	max-width: 360px;
 	width: 100%;
 	background: #2b2b2b !important;
 	border-radius: 8px;
-	padding: 1.5em;
+	padding: 1.25em .8em;
 	gap: 1em;
 	margin: 0 auto;
 	display: flex;
@@ -65,8 +66,9 @@
 }
 
 .link_amazon img {
-	object-fit: cover;
+	object-fit: contain;
 	width: 140px;
+	background: #000;
 }
 
 .link_amazon div {
@@ -75,6 +77,8 @@
 }
 
 .link_amazon h3 {
+	white-space: normal;
+	word-break: break-word;
 	text-align: center;
 	font-size: 1rem;
 	margin: 0 0 .5em;
