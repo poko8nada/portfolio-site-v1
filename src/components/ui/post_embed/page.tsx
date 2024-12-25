@@ -3,6 +3,7 @@ import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import type { ClassAttributes, HTMLAttributes } from 'react';
 import type { ExtraProps } from 'react-markdown';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './post_embed.module.css';
 
 const embedType = ['Link', 'Amazon', 'Youtube', 'Twitter'];
@@ -26,9 +27,10 @@ export default ({
 }: ClassAttributes<HTMLElement> & HTMLAttributes<HTMLElement> & ExtraProps) => {
   const match = /language-(\w+)/.exec(className || '');
 
-  if (getType(match?.[1])) {
+  const embedType = getType(match?.[1]);
+  if (embedType) {
     const { title, host, url, image } = getData(children as string);
-    switch (getType(match?.[1])) {
+    switch (embedType) {
       case 'Link':
         return (
           <Link
@@ -41,14 +43,16 @@ export default ({
               <h3>{title}</h3>
               <p>{host}</p>
             </div>
-            {image && <img src={image} alt={title} />}
+            {image && <Image src={image} alt={title} width={140} height={96} />}
           </Link>
         );
       case 'Amazon':
         return (
           <div className={styles.link_amazon}>
             <Link href={url} target="_blank" rel="noopener noreferrer">
-              {image && <img src={image} alt={title} />}
+              {image && (
+                <Image src={image} alt={title} width={200} height={200} />
+              )}
             </Link>
             <Link href={url} target="_blank" rel="noopener noreferrer">
               <h3>{title}</h3>
@@ -64,6 +68,7 @@ export default ({
       language={match[1]}
       PreTag="div"
       showLineNumbers={true}
+      wrapLines={true}
     >
       {String(children).replace(/\n$/, '')}
     </SyntaxHighlighter>
