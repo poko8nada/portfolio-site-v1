@@ -56,11 +56,9 @@ export default function Home() {
             );
           })
         )}
-        {topPosts.length > 3 && (
-          <div style={{ marginTop: '2rem' }}>
+        {/* <div style={{ marginTop: '2rem' }}>
             <Button href="/posts">read more</Button>
-          </div>
-        )}
+          </div> */}
       </SectionBody>
       <SectionBody>
         <SectionHeader>works</SectionHeader>
