@@ -29,3 +29,27 @@
 	font-size: .9em;
 	color: #878787;
 }
+
+.article_header p > span {
+	display: inline-block;
+	padding: 0 .8em 0 .4em;
+}
+
+.article_header p > span::before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: .3em;
+}
+
+.article_header p > span:last-child::before {
+	background: url("/images/posts/icon_update.svg") no-repeat center center;
+	background-size: contain;
+}
+
+.article_header p > span:first-child::before {
+	background: url("/images/posts/icon_create.svg") no-repeat center center;
+	background-size: contain;
+}
