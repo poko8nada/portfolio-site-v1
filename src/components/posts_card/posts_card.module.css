@@ -1,7 +1,6 @@
 .post_container {
 	width: 100%;
 	max-width: 640px;
-	min-width: 360px;
 	padding: .5em 1rem;
 	margin: 0 auto;
 }

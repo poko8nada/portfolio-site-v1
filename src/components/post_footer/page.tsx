@@ -1,6 +1,6 @@
-import styles from './post_footer.module.css';
-import Link from 'next/link';
 import type { Post } from '@/src/lib/post';
+import Link from 'next/link';
+import styles from './post_footer.module.css';
 export default ({
   prevPost,
   nextPost,
@@ -11,20 +11,20 @@ export default ({
   const nextPostSlug = nextPost?.slug;
   return (
     <div className={styles.article_footer}>
-      <div>
-        {prevPostSlug && (
-          <Link href={`/posts/${prevPostSlug}`} className={styles.prev}>
-            <span>{prevPostTitle}</span>
-          </Link>
-        )}
-      </div>
-      <div>
-        {nextPostSlug && (
-          <Link href={`/posts/${nextPostSlug}`} className={styles.next}>
-            <span>{nextPostTitle}</span>
-          </Link>
-        )}
-      </div>
+      {/* <div> */}
+      {prevPostSlug && (
+        <Link href={`/posts/${prevPostSlug}`} className={styles.prev}>
+          {prevPostTitle}
+        </Link>
+      )}
+      {/* </div>
+      <div> */}
+      {nextPostSlug && (
+        <Link href={`/posts/${nextPostSlug}`} className={styles.next}>
+          {nextPostTitle}
+        </Link>
+      )}
+      {/* </div> */}
     </div>
   );
 };
