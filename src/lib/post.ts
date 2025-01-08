@@ -1,6 +1,6 @@
-import matter from 'gray-matter';
 import fs from 'node:fs';
 import path from 'node:path';
+import matter from 'gray-matter';
 
 export type Post = {
   slug: string;
@@ -11,7 +11,7 @@ export type Post = {
     thumbnail: string;
   };
   content: string;
-}
+};
 
 export const getAllPosts = () => {
   const postsDir = path.join(process.cwd(), '/src/posts');
@@ -22,15 +22,23 @@ export const getAllPosts = () => {
       const slug = filename.replace('.md', '');
       const markdownWithMeta = fs.readFileSync(
         path.join(postsDir, filename),
-        'utf-8'
-      )
+        'utf-8',
+      );
       const { data, content } = matter(markdownWithMeta);
 
-      if (process.env.NODE_ENV === 'development' && /.*blog-format/.test(data.title)) {
+      if (
+        process.env.NODE_ENV === 'development' &&
+        /.*blog-format.*/.test(data.title)
+      ) {
         data.isPublished = true;
       }
 
-      if (!data.isPublished || !data.title || !data.createdAt || !data.updatedAt) {
+      if (
+        !data.isPublished ||
+        !data.title ||
+        !data.createdAt ||
+        !data.updatedAt
+      ) {
         return null;
       }
 
@@ -38,13 +46,15 @@ export const getAllPosts = () => {
         title: String(data.title),
         createdAt: data.createdAt.toISOString().slice(0, 10) as string,
         updatedAt: data.updatedAt.toISOString().slice(0, 10) as string,
-        thumbnail: data.thumbnail ? String(data.thumbnail) : '/images/pencil01.svg'
+        thumbnail: data.thumbnail
+          ? String(data.thumbnail)
+          : '/images/pencil01.svg',
       };
 
       return {
         slug,
         formattedData,
-        content
+        content,
       };
     })
     .filter((post) => post !== null);

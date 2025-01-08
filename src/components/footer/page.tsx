@@ -5,7 +5,7 @@ export default () => {
     <footer className={styles.footer}>
       <p>
         &copy; {currentYear}{' '}
-        <a href="/" style={{ color: '#0070f3', textDecoration: 'underline' }}>
+        <a href="/" style={{ color: '#4199ff', textDecoration: 'underline' }}>
           PokoHanadaCom
         </a>
       </p>

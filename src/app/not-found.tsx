@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import SectionBody from '@/src/components/section_body/page';
+import Link from 'next/link';
 export default function NotFound() {
   return (
     <SectionBody>
@@ -7,7 +7,7 @@ export default function NotFound() {
       <p>Could not find requested resource</p>
       <Link
         href="/"
-        style={{ marginTop: '3rem', display: 'inline-block', color: '#0070f3' }}
+        style={{ marginTop: '3rem', display: 'inline-block', color: '#4199ff' }}
       >
         Return Home
       </Link>
