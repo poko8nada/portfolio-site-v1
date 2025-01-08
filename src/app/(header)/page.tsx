@@ -1,45 +1,59 @@
-import Link from 'next/link';
-import { getTopPosts } from '@/src/lib/post';
 import PostsCard from '@/src/components/posts_card/page';
 import SectionBody from '@/src/components/section_body/page';
 import SectionHeader from '@/src/components/section_header/page';
 import Button from '@/src/components/ui/button/page';
+import { getTopPosts } from '@/src/lib/post';
 import Image from 'next/image';
+import Link from 'next/link';
 export default function Home() {
   const topPosts = getTopPosts();
   return (
     <>
       <SectionBody>
         <SectionHeader>about</SectionHeader>
-        <p>webディレクター兼エンジニア兼マーケターです。</p>
-        <p>webディベロッパーでもあります。</p>
-        <div style={{ display: 'flex', gap: '1.5em', marginTop: '1rem' }}>
+        <p style={{ padding: '.5rem  1rem', textAlign: 'center' }}>
+          webディレクター兼エンジニア兼マーケターです。
+          <br />
+          webディベロッパーでもあります。
+        </p>
+        <div style={{ display: 'flex', gap: '1em' }}>
           <Link
             style={{
-              borderRadius: '16%',
+              borderRadius: '18%',
               overflow: 'hidden',
-              padding: '.85rem .7rem .6rem',
-              background: '#1b2da3',
+              padding: '.5rem',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
             href="https://x.com/you88451h"
             target="_blank"
           >
-            <Image src="/images/x-logo.svg" alt="" width={28} height={28} />
+            <Image
+              style={{ display: 'block' }}
+              src="/images/x-logo.svg"
+              alt=""
+              width={25}
+              height={25}
+            />
           </Link>
           <Link
             style={{
-              borderRadius: '16%',
+              borderRadius: '18%',
               overflow: 'hidden',
-              padding: '.7rem',
-              background: '#1b2da3',
+              padding: '.5rem',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
             href="https://github.com/poko8nada"
             target="_blank"
           >
             <Image
+              style={{ display: 'block' }}
               src="/images/github-mark-white.svg"
               alt=""
-              width={30}
+              width={31}
               height={30}
             />
           </Link>
