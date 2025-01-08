@@ -12,11 +12,20 @@ export default function Home() {
       <SectionBody>
         <SectionHeader>about</SectionHeader>
         <p style={{ padding: '.5rem  1rem', textAlign: 'center' }}>
+          こんにちは。PokoHanadaです。
+        </p>
+        <p style={{ padding: '.5rem  1rem', textAlign: 'center' }}>
           webディレクター兼エンジニア兼マーケターです。
           <br />
           webディベロッパーでもあります。
         </p>
-        <div style={{ display: 'flex', gap: '1em' }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: '1em',
+            padding: '.5rem  1rem',
+          }}
+        >
           <Link
             style={{
               borderRadius: '18%',
@@ -70,13 +79,13 @@ export default function Home() {
             );
           })
         )}
-        {/* <div style={{ marginTop: '2rem' }}>
-            <Button href="/posts">read more</Button>
-          </div> */}
+        <div style={{ marginTop: '2rem' }}>
+          <Button href="/posts">すべての投稿を見る</Button>
+        </div>
       </SectionBody>
       <SectionBody>
         <SectionHeader>works</SectionHeader>
-        <p style={{ padding: '1rem' }}>Under construction ...</p>
+        <p style={{ padding: '1rem' }}>準備中…</p>
       </SectionBody>
     </>
   );
