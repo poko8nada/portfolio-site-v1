@@ -7,12 +7,6 @@
 	width: 100%;
 }
 
-@media (max-width: 640px) {
-	.article_footer {
-		flex-direction: column;
-	}
-}
-
 .article_footer a {
 	font-size: .85em;
 	position: relative;
@@ -63,5 +57,19 @@
 .next {
 	margin-left: auto;
 	padding: .5em 1em .5em .3em;
-	/* text-align: right; */
+}
+
+@media (max-width: 640px) {
+	.article_footer {
+		flex-direction: column;
+	}
+	.article_footer .prev,
+	.article_footer .next {
+		width: 95%;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.next {
+		text-align: right;
+	}
 }
