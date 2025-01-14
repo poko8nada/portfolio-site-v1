@@ -60,6 +60,10 @@
 	padding: 0 !important;
 }
 
+.article_container pre:has(div > img) {
+	padding: 1em 1em 1em .5em;
+}
+
 .article_container p > img {
 	margin: 0 auto;
 	max-width: 460px;

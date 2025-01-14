@@ -89,3 +89,14 @@
 	font-size: .8rem;
 	margin: 0;
 }
+
+.link_callout {
+	display: flex;
+	text-wrap: balance;
+	align-items: center;
+	gap: .2em;
+}
+
+.link_callout p {
+	margin: .2em 0;
+}

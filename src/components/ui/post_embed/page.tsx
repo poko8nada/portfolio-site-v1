@@ -1,23 +1,14 @@
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
-import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Image from 'next/image';
+import Link from 'next/link';
 import type { ClassAttributes, HTMLAttributes } from 'react';
 import type { ExtraProps } from 'react-markdown';
-import Link from 'next/link';
-import Image from 'next/image';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import styles from './post_embed.module.css';
 
-const embedType = ['Link', 'Amazon', 'Youtube', 'Twitter'];
+const embedType = ['Link', 'Amazon', 'Youtube', 'Twitter', 'Callout'];
 const getType = (matchStr: string | undefined) => {
   return embedType.find((type) => type === matchStr);
-};
-const getData = (children: string) => {
-  const [title, host, url, image] = children.split('\n');
-  return {
-    title,
-    host,
-    url,
-    image,
-  };
 };
 export default ({
   children,
@@ -26,8 +17,34 @@ export default ({
   ...props
 }: ClassAttributes<HTMLElement> & HTMLAttributes<HTMLElement> & ExtraProps) => {
   const match = /language-(\w+)/.exec(className || '');
-
   const embedType = getType(match?.[1]);
+
+  const getData = (
+    children: string,
+  ): {
+    title: string;
+    host: string;
+    url: string;
+    image: string;
+  } => {
+    if (embedType === 'Callout') {
+      return {
+        title: '',
+        host: '',
+        url: '',
+        image: '',
+      };
+    }
+
+    const [title, host, url, image] = children.split('\n');
+    return {
+      title,
+      host,
+      url,
+      image,
+    };
+  };
+
   if (embedType) {
     const { title, host, url, image } = getData(children as string);
     switch (embedType) {
@@ -58,6 +75,18 @@ export default ({
               <h3>{title}</h3>
               <p>{host}</p>
             </Link>
+          </div>
+        );
+      case 'Callout':
+        return (
+          <div className={`${styles.link_callout}`}>
+            <Image
+              src="/images/posts/bulb.svg"
+              alt={title}
+              width={42}
+              height={42}
+            />
+            <p>{children}</p>
           </div>
         );
     }
