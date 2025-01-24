@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       'webディレクター兼エンジニア兼マーケターです。webディベロッパーでもあります。Webアプリケーション開発、フロントエンド開発が得意です。',
     type: 'website',
     url: 'https://pokohanada.com/',
-    images: '/images/profile01.png',
+    images: 'https://pokohanada.com/images/profile01.png',
   },
   twitter: {
     card: 'summary',
