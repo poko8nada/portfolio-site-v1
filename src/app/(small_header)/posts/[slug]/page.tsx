@@ -1,25 +1,25 @@
-import PostHeader from '@/src/components/post_header/page';
-import PostFooter from '@/src/components/post_footer/page';
-import PostBody from '@/src/components/post_body/page';
+import PostBody from '@/components/post_body/page'
+import PostFooter from '@/components/post_footer/page'
+import PostHeader from '@/components/post_header/page'
 
-import { getAllPosts, type Post } from '@/src/lib/post';
-import { notFound } from 'next/navigation';
-import SectionBody from '@/src/components/section_body/page';
+import SectionBody from '@/components/section_body/page'
+import { type Post, getAllPosts } from '@/lib/post'
+import { notFound } from 'next/navigation'
 
-const allPosts: Post[] = getAllPosts();
+const allPosts: Post[] = getAllPosts()
 
 export function generateStaticParams() {
   return allPosts.map(({ slug }) => {
-    return { slug };
-  });
+    return { slug }
+  })
 }
 
 export async function generateMetadata({
   params,
 }: { params: Promise<{ slug: string }> }) {
-  const slug = (await params).slug;
+  const slug = (await params).slug
 
-  const post = allPosts.find((post) => post.slug === slug);
+  const post = allPosts.find(post => post.slug === slug)
   return {
     title: `${post?.formattedData.title} | pokoHanadaCom`,
     canonical: `https://pokohanada.com/posts/${slug}`,
@@ -35,26 +35,26 @@ export async function generateMetadata({
       title: `${post?.formattedData.title} | pokoHanadaCom`,
       description: post?.formattedData.title,
     },
-  };
+  }
 }
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>
 }) {
-  const slug = (await params).slug;
-  const post = allPosts.find((post) => post.slug === slug);
-  const content: string | undefined = post?.content;
+  const slug = (await params).slug
+  const post = allPosts.find(post => post.slug === slug)
+  const content: string | undefined = post?.content
 
   if (!post) {
-    console.log(`${slug} ${content}`);
-    return notFound();
+    console.log(`${slug} ${content}`)
+    return notFound()
   }
 
-  const postIndex = allPosts.findIndex((post) => post.slug === slug);
-  const prevPost = allPosts[postIndex - 1];
-  const nextPost = allPosts[postIndex + 1];
+  const postIndex = allPosts.findIndex(post => post.slug === slug)
+  const prevPost = allPosts[postIndex - 1]
+  const nextPost = allPosts[postIndex + 1]
 
   return (
     <>
@@ -66,5 +66,5 @@ export default async function Page({
         )}
       </SectionBody>
     </>
-  );
+  )
 }

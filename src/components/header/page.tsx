@@ -1,8 +1,8 @@
-import styles from './header.module.css';
-import Image from 'next/image';
-import { Nunito } from 'next/font/google';
+import { Nunito } from 'next/font/google'
+import Image from 'next/image'
+import styles from './header.module.css'
 
-const nunito = Nunito({ subsets: ['latin'] });
+const nunito = Nunito({ subsets: ['latin'] })
 
 export default ({
   imgSize = 140,
@@ -12,15 +12,15 @@ export default ({
     <header className={`${styles.header} ${nunito.className}`}>
       <div className={styles.header_logo}>
         <Image
-          src="/images/profile01.png"
+          src='/images/profile01.png'
           width={imgSize}
           height={imgSize}
-          alt=""
+          alt=''
           priority
-          placeholder="empty"
+          placeholder='empty'
         />
         <h1 style={{ fontSize: `${fontSize}rem` }}>PokoHanadaCom</h1>
       </div>
     </header>
-  );
-};
+  )
+}

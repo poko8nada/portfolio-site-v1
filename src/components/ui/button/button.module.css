@@ -1,37 +1,37 @@
 a.button {
-	--btn_primary: #4199ff;
-	--btn_secondary: #f2f2f2;
-	/* --btn_background: #0f1540; */
+  --btn_primary: #4199ff;
+  --btn_secondary: #f2f2f2;
+  /* --btn_background: #0f1540; */
 }
 
 a.button {
-	display: inline-block;
-	color: var(--btn_primary);
-	font-size: 1em;
-	position: relative;
-	padding: 1.1em 1.8em 1.1em 1.1em;
-	line-height: 1.6;
-	text-decoration: none;
-	text-align: center;
+  display: inline-block;
+  color: var(--btn_primary);
+  font-size: 1em;
+  position: relative;
+  padding: 1.1em 1.8em 1.1em 1.1em;
+  line-height: 1.6;
+  text-decoration: none;
+  text-align: center;
 }
 
 a.button:hover,
 a.button:active,
 a.button:focus,
 a.button:target {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 a.button:after {
-	content: "";
-	width: 8px;
-	height: 8px;
-	border-top: 2px solid var(--btn_primary);
-	border-right: 2px solid var(--btn_primary);
-	transform: rotate(45deg) translateY(-50%);
-	position: absolute;
-	top: 45%;
-	right: 18px;
-	border-radius: 1px;
-	transition: 0.2s ease;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--btn_primary);
+  border-right: 2px solid var(--btn_primary);
+  transform: rotate(45deg) translateY(-50%);
+  position: absolute;
+  top: 45%;
+  right: 18px;
+  border-radius: 1px;
+  transition: 0.2s ease;
 }

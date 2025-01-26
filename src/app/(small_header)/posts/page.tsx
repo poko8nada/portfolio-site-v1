@@ -1,15 +1,15 @@
-import type { Metadata } from 'next';
-import PostsCard from '@/src/components/posts_card/page';
-import SectionBody from '@/src/components/section_body/page';
+import PostsCard from '@/components/posts_card/page'
+import SectionBody from '@/components/section_body/page'
+import type { Metadata } from 'next'
 
-import { getAllPosts } from '@/src/lib/post';
+import { getAllPosts } from '@/lib/post'
 
 export const metadata: Metadata = {
   title: 'blog | pokoHanadaCom',
-};
+}
 
 export default () => {
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts()
   return (
     <>
       <SectionBody>
@@ -24,10 +24,10 @@ export default () => {
           allPosts.map(({ slug, formattedData }) => {
             return (
               <PostsCard key={slug} slug={slug} formattedData={formattedData} />
-            );
+            )
           })
         )}
       </SectionBody>
     </>
-  );
-};
+  )
+}

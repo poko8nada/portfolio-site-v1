@@ -1,14 +1,14 @@
-import type { Post } from '@/src/lib/post';
-import Link from 'next/link';
-import styles from './post_footer.module.css';
+import type { Post } from '@/lib/post'
+import Link from 'next/link'
+import styles from './post_footer.module.css'
 export default ({
   prevPost,
   nextPost,
 }: { prevPost?: Post; nextPost?: Post }) => {
-  const prevPostTitle = prevPost?.formattedData.title;
-  const nextPostTitle = nextPost?.formattedData.title;
-  const prevPostSlug = prevPost?.slug;
-  const nextPostSlug = nextPost?.slug;
+  const prevPostTitle = prevPost?.formattedData.title
+  const nextPostTitle = nextPost?.formattedData.title
+  const prevPostSlug = prevPost?.slug
+  const nextPostSlug = nextPost?.slug
   return (
     <div className={styles.article_footer}>
       {/* <div> */}
@@ -26,5 +26,5 @@ export default ({
       )}
       {/* </div> */}
     </div>
-  );
-};
+  )
+}

@@ -1,8 +1,14 @@
-import Link from "next/link";
-import styles from "./posts_card.module.css";
-import PostThumbnail from "../ui/post_thumbnail/page";
+import Link from 'next/link'
+import PostThumbnail from '../ui/post_thumbnail/page'
+import styles from './posts_card.module.css'
 
-export default ({ slug, formattedData }: { slug: string, formattedData: { title: string, createdAt: string, thumbnail: string } }) => {
+export default ({
+  slug,
+  formattedData,
+}: {
+  slug: string
+  formattedData: { title: string; createdAt: string; thumbnail: string }
+}) => {
   return (
     <article key={slug} className={styles.post_container}>
       <Link href={`/posts/${slug}`} className={styles.post}>
@@ -13,5 +19,5 @@ export default ({ slug, formattedData }: { slug: string, formattedData: { title:
         <PostThumbnail thumbnail={formattedData.thumbnail} size={50} />
       </Link>
     </article>
-  );
+  )
 }

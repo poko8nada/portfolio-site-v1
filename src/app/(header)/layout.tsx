@@ -1,6 +1,5 @@
-import Header from '@/src/components/header/page';
-import Footer from '@/src/components/footer/page';
-import Main from '@/src/components/main/page';
+import Header from '@/components/header/page'
+import Main from '@/components/main/page'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,5 +7,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Header />
       <Main>{children}</Main>
     </>
-  );
+  )
 }
