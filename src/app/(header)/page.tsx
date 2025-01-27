@@ -11,6 +11,7 @@ export default function Home() {
     <>
       <SectionBody>
         <SectionHeader>about</SectionHeader>
+        <p className='text-2xl  font-bold hover:underline'>hello</p>
         <p style={{ padding: '.5rem  1rem', textAlign: 'center' }}>
           こんにちは。PokoHanadaです。
         </p>
