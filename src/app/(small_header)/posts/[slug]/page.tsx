@@ -1,6 +1,6 @@
+import PostHeader from '@/components/postHeader'
 import PostBody from '@/components/post_body/page'
 import PostFooter from '@/components/post_footer/page'
-import PostHeader from '@/components/post_header/page'
 
 import SectionBody from '@/components/section_body/page'
 import { type Post, getAllPosts } from '@/lib/post'

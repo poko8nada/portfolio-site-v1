@@ -54,6 +54,7 @@ export default function Home() {
                 slug={slug}
                 formattedData={formattedData}
                 index={index}
+                isHome={true}
               />
             )
           })}
@@ -70,6 +71,10 @@ export default function Home() {
             />
           </Button>
         </div>
+      </SectionBody>
+      <SectionBody>
+        <SectionHeader>tools</SectionHeader>
+        <p className='p-1 mt-1 text-center'>準備中…</p>
       </SectionBody>
       <SectionBody>
         <SectionHeader>works</SectionHeader>

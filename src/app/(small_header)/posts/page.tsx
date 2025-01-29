@@ -16,17 +16,20 @@ export default () => {
         <div
           style={{ marginBottom: '24px', textAlign: 'center', padding: '1rem' }}
         >
-          <p>webディレクター兼エンジニア兼マーケターの雑記です。</p>
+          <p>手を動かすwebディレクターの雑記です。</p>
         </div>
-        {allPosts.length === 0 ? (
-          <p style={{ padding: '1rem' }}>Under construction ...</p>
-        ) : (
-          allPosts.map(({ slug, formattedData }) => {
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-9 md:px-28 px-12 p-4'>
+          {allPosts.map(({ slug, formattedData }, index) => {
             return (
-              <PostsCard key={slug} slug={slug} formattedData={formattedData} />
+              <PostsCard
+                key={slug}
+                slug={slug}
+                index={index}
+                formattedData={formattedData}
+              />
             )
-          })
-        )}
+          })}
+        </div>
       </SectionBody>
     </>
   )
