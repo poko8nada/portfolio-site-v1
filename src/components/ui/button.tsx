@@ -1,12 +1,14 @@
 import Link from 'next/link'
-import styles from './button.module.css'
 
 export default ({
   href,
   children,
 }: { href: string; children: React.ReactNode }) => {
   return (
-    <Link href={href} className={styles.button}>
+    <Link
+      href={href}
+      className='text-pr leading-3 hover:underline inline-flex items-center justify-between'
+    >
       {children}
     </Link>
   )
