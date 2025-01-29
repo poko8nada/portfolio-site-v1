@@ -1,10 +1,10 @@
-import Header from '@/components/header/page'
-import Main from '@/components/main/page'
+import Header from '@/components/header'
+import Main from '@/components/main'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header imgSize={110} fontSize={1.4} />
+      <Header imgSize={90} fontSize={1.2} />
       <Main>{children}</Main>
     </>
   )

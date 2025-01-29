@@ -6,11 +6,8 @@ const gradient = randomGradient()
 
 export default ({
   thumbnail = '/images/pencil01.svg',
-  size = 60,
-}: { thumbnail?: string; size: number }) => {
-  return (
-    <div className={styles.img_container} style={{ background: gradient }}>
-      <Image src={thumbnail} alt={''} width={size} height={size} />
-    </div>
-  )
+  width = 60,
+  height = 60,
+}: { thumbnail?: string; width: number; height: number }) => {
+  return <Image src={thumbnail} alt={''} width={width} height={height} />
 }

@@ -1,4 +1,4 @@
-import PostsCard from '@/components/posts_card/page'
+import PostsCard from '@/components/postsCard'
 import SectionBody from '@/components/section_body/page'
 import type { Metadata } from 'next'
 
