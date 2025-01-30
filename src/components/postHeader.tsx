@@ -22,7 +22,7 @@ export default ({ post }: { post?: Post }) => {
           height={16}
           className='inline mr-2'
         />
-        <span className='text-fg'>{createdAt}</span>
+        <span className='text-fg text-sm'>{createdAt}</span>
         {updatedAt === createdAt ? null : (
           <>
             <Image
@@ -32,7 +32,7 @@ export default ({ post }: { post?: Post }) => {
               height={16}
               className='inline ml-3 mr-2'
             />
-            <span className='text-fg'>{updatedAt}</span>
+            <span className='text-fg text-sm'>{updatedAt}</span>
           </>
         )}
       </p>
