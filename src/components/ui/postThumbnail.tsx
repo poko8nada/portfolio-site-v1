@@ -1,6 +1,5 @@
 import randomGradient from '@/lib/randomGradient'
 import Image from 'next/image'
-import styles from './post_thumbnail.module.css'
 
 const gradient = randomGradient()
 

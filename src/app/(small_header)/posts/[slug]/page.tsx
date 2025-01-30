@@ -1,8 +1,8 @@
 import PostBody from '@/components/postBody'
+import PostFooter from '@/components/postFooter'
 import PostHeader from '@/components/postHeader'
-import PostFooter from '@/components/post_footer/page'
 
-import SectionBody from '@/components/section_body/page'
+import SectionBody from '@/components/sectionBody'
 import { type Post, getAllPosts } from '@/lib/post'
 import { notFound } from 'next/navigation'
 
@@ -44,6 +44,7 @@ export default async function Page({
   params: Promise<{ slug: string }>
 }) {
   const slug = (await params).slug
+
   const post = allPosts.find(post => post.slug === slug)
   const content: string | undefined = post?.content
 

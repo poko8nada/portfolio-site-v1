@@ -1,4 +1,4 @@
-import SectionBody from '@/components/section_body/page'
+import SectionBody from '@/components/sectionBody'
 import Link from 'next/link'
 export default function NotFound() {
   return (

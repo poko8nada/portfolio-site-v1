@@ -1,4 +1,4 @@
-import PostThumbnail from '@/components/ui/post_thumbnail/page'
+import PostThumbnail from '@/components/ui/postThumbnail'
 import type { Post } from '@/lib/post'
 import Image from 'next/image'
 

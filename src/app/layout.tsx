@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Footer from '@/components/footer/page'
+import Footer from '@/components/footer'
 import { GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata: Metadata = {

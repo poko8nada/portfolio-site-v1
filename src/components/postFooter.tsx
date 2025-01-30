@@ -1,6 +1,5 @@
 import type { Post } from '@/lib/post'
 import Link from 'next/link'
-import styles from './post_footer.module.css'
 export default ({
   prevPost,
   nextPost,
@@ -9,22 +8,30 @@ export default ({
   const nextPostTitle = nextPost?.formattedData.title
   const prevPostSlug = prevPost?.slug
   const nextPostSlug = nextPost?.slug
+
+  const linkClass = 'hover:underline text-pr text-xs md:text-sm my-3'
   return (
-    <div className={styles.article_footer}>
-      {/* <div> */}
+    <div className='px-8 w-full flex flex-col md:flex-row items-center justify-between'>
       {prevPostSlug && (
-        <Link href={`/posts/${prevPostSlug}`} className={styles.prev}>
+        <Link
+          href={`/posts/${prevPostSlug}`}
+          className={`prev relative self-start ${linkClass}`}
+        >
           {prevPostTitle}
         </Link>
       )}
-      {/* </div>
-      <div> */}
       {nextPostSlug && (
-        <Link href={`/posts/${nextPostSlug}`} className={styles.next}>
+        <Link
+          href={`/posts/${nextPostSlug}`}
+          className={
+            prevPostSlug
+              ? `next relative self-end ${linkClass}`
+              : `next relative ml-auto ${linkClass}`
+          }
+        >
           {nextPostTitle}
         </Link>
       )}
-      {/* </div> */}
     </div>
   )
 }

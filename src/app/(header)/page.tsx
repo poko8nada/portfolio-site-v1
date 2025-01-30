@@ -1,6 +1,6 @@
 import PostsCard from '@/components/postsCard'
+import SectionBody from '@/components/sectionBody'
 import SectionHeader from '@/components/sectionHeader'
-import SectionBody from '@/components/section_body/page'
 import Button from '@/components/ui/button'
 import { getTopPosts } from '@/lib/post'
 import Image from 'next/image'

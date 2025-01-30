@@ -1,5 +1,5 @@
 import PostsCard from '@/components/postsCard'
-import SectionBody from '@/components/section_body/page'
+import SectionBody from '@/components/sectionBody'
 import type { Metadata } from 'next'
 
 import { getAllPosts } from '@/lib/post'

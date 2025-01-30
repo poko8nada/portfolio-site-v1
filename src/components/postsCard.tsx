@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import PostThumbnail from './ui/post_thumbnail/page'
+import PostThumbnail from './ui/postThumbnail'
 
 export default ({
   slug,
