@@ -1,10 +1,12 @@
 import PostsCard from '@/components/postsCard'
 import SectionBody from '@/components/sectionBody'
 import SectionHeader from '@/components/sectionHeader'
+import ToolsCard from '@/components/toolsCard'
 import Button from '@/components/ui/button'
 import { getTopPosts } from '@/lib/post'
 import Image from 'next/image'
 import Link from 'next/link'
+
 export default function Home() {
   const topPosts = getTopPosts()
   return (
@@ -46,7 +48,7 @@ export default function Home() {
       </SectionBody>
       <SectionBody>
         <SectionHeader>recent posts</SectionHeader>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:px-12 p-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:px-12 p-2'>
           {topPosts.map(({ slug, formattedData }, index) => {
             return (
               <PostsCard
@@ -74,7 +76,14 @@ export default function Home() {
       </SectionBody>
       <SectionBody>
         <SectionHeader>tools</SectionHeader>
-        <p className='p-1 mt-1 text-center'>準備中…</p>
+        <div className='p-2'>
+          <ToolsCard
+            title='カードタイプのリンクジェネレーター'
+            description='ブログに埋め込むカードタイプのリンクを簡単に作成することができます'
+            img='/images/card.svg'
+            link='https://cardlink-generator-v1.vercel.app/'
+          />
+        </div>
       </SectionBody>
       <SectionBody>
         <SectionHeader>works</SectionHeader>
