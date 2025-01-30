@@ -1,9 +1,7 @@
-import styles from './section_body.module.css';
-
 export default ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className={styles.section_container}>
+    <section className='flex flex-col justify-center items-center p-4 mt-4 mb-16 min-h-[160px]'>
       {children}
     </section>
-  );
+  )
 }

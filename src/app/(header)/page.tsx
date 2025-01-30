@@ -1,68 +1,44 @@
-import PostsCard from '@/src/components/posts_card/page';
-import SectionBody from '@/src/components/section_body/page';
-import SectionHeader from '@/src/components/section_header/page';
-import Button from '@/src/components/ui/button/page';
-import { getTopPosts } from '@/src/lib/post';
-import Image from 'next/image';
-import Link from 'next/link';
+import PostsCard from '@/components/postsCard'
+import SectionBody from '@/components/sectionBody'
+import SectionHeader from '@/components/sectionHeader'
+import Button from '@/components/ui/button'
+import { getTopPosts } from '@/lib/post'
+import Image from 'next/image'
+import Link from 'next/link'
 export default function Home() {
-  const topPosts = getTopPosts();
+  const topPosts = getTopPosts()
   return (
     <>
       <SectionBody>
         <SectionHeader>about</SectionHeader>
-        <p style={{ padding: '.5rem  1rem', textAlign: 'center' }}>
-          こんにちは。PokoHanadaです。
-        </p>
-        <p style={{ padding: '.5rem  1rem', textAlign: 'center' }}>
-          webディレクター兼エンジニア兼マーケターです。
+        <p className='p-1 mt-2 text-center'>こんにちは。PokoHanadaです。</p>
+        <p className='p-1 mt-2 text-center'>
+          手を動かすwebディレクターです。
           <br />
-          webディベロッパーでもあります。
+          webエンジニア、ディベロッパーでもあります。
         </p>
-        <div
-          style={{
-            display: 'flex',
-            gap: '1em',
-            padding: '.5rem  1rem',
-          }}
-        >
+        <div className='flex flex-row items-center justify-center gap-8 mt-8'>
           <Link
-            style={{
-              borderRadius: '18%',
-              overflow: 'hidden',
-              padding: '.5rem',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            href="https://x.com/you88451h"
-            target="_blank"
+            href='https://x.com/you88451h'
+            target='_blank'
+            className='hover:scale-125 ease-in-out transition-transform'
           >
             <Image
-              style={{ display: 'block' }}
-              src="/images/x-logo.svg"
-              alt=""
-              width={25}
-              height={25}
+              src='/images/x-logo.svg'
+              alt='xlogo'
+              width={26}
+              height={26}
             />
           </Link>
           <Link
-            style={{
-              borderRadius: '18%',
-              overflow: 'hidden',
-              padding: '.5rem',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            href="https://github.com/poko8nada"
-            target="_blank"
+            href='https://github.com/poko8nada'
+            target='_blank'
+            className='hover:scale-125 ease-in-out transition-transform'
           >
             <Image
-              style={{ display: 'block' }}
-              src="/images/github-mark-white.svg"
-              alt=""
-              width={31}
+              src='/images/github-mark-white.svg'
+              alt='githublogo'
+              width={32}
               height={30}
             />
           </Link>
@@ -70,23 +46,40 @@ export default function Home() {
       </SectionBody>
       <SectionBody>
         <SectionHeader>recent posts</SectionHeader>
-        {topPosts.length === 0 ? (
-          <p style={{ padding: '1rem' }}>Under construction ...</p>
-        ) : (
-          topPosts.map(({ slug, formattedData }) => {
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:px-12 p-4'>
+          {topPosts.map(({ slug, formattedData }, index) => {
             return (
-              <PostsCard key={slug} slug={slug} formattedData={formattedData} />
-            );
-          })
-        )}
-        <div style={{ marginTop: '2rem' }}>
-          <Button href="/posts">すべての投稿を見る</Button>
+              <PostsCard
+                key={slug}
+                slug={slug}
+                formattedData={formattedData}
+                index={index}
+                isHome={true}
+              />
+            )
+          })}
+        </div>
+        <div className='mt-6'>
+          <Button href='/posts'>
+            すべての投稿を見る
+            <Image
+              src={'/images/arrow-next.svg'}
+              width={16}
+              height={16}
+              alt='arrow next'
+              className='inline ml-2'
+            />
+          </Button>
         </div>
       </SectionBody>
       <SectionBody>
+        <SectionHeader>tools</SectionHeader>
+        <p className='p-1 mt-1 text-center'>準備中…</p>
+      </SectionBody>
+      <SectionBody>
         <SectionHeader>works</SectionHeader>
-        <p style={{ padding: '1rem' }}>準備中…</p>
+        <p className='p-1 mt-1 text-center'>準備中…</p>
       </SectionBody>
     </>
-  );
+  )
 }

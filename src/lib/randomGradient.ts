@@ -8,8 +8,8 @@ const randomGradient = () => {
     'linear-gradient(90deg, rgb(229, 162, 255), rgb(152, 233, 157))',
     'linear-gradient(90deg, rgb(89, 173, 241), rgb(207, 253, 157))',
     'linear-gradient(90deg, rgb(210, 190, 153), rgb(194, 255, 233))',
-  ];
-  return colors[Math.floor(Math.random() * colors.length)];
-};
+  ]
+  return colors[Math.floor(Math.random() * colors.length)]
+}
 
-export default randomGradient;
+export default randomGradient
