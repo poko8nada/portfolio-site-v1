@@ -10,7 +10,7 @@ export default ({ post }: { post?: Post }) => {
 
   return (
     <div className='flex flex-col items-center mb-5'>
-      <h2 className='text-xl md:text-2xl my-5 p-2'>{title}</h2>
+      <h2 className='text-xl md:text-2xl my-5 py-2'>{title}</h2>
       <div className='flex items-center justify-center px-4 py-3 rounded-lg bg-fg'>
         <PostThumbnail thumbnail={thumbnail} width={60} height={60} />
       </div>
