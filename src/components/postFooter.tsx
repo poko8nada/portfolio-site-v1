@@ -11,7 +11,7 @@ export default ({
 
   const linkClass = 'hover:underline text-pr text-xs md:text-sm my-3'
   return (
-    <div className='px-8 w-full flex flex-col md:flex-row items-center justify-between'>
+    <div className='px-4 md:px-8 w-full flex flex-col md:flex-row items-center justify-between'>
       {prevPostSlug && (
         <Link
           href={`/posts/${prevPostSlug}`}
