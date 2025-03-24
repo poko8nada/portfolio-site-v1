@@ -54,18 +54,18 @@ export default ({
             rel='noopener noreferrer'
           >
             {image && (
-              <div className='max-w-[140px] md:max-w-[200px] !bg-bg-2 rounded-l-md max-h-28'>
+              <div className='max-w-[160px] md:max-w-[220px] !bg-bg-1 rounded-l-md shrink-0'>
                 <Image
                   src={image}
                   alt={title}
                   width={200}
                   height={200}
-                  className='object-cover min-h-[110px] h-full w-full rounded-l-md object-center'
+                  className='object-contain max-h-[110px] w-full h-full rounded-l-md object-center'
                 />
               </div>
             )}
             <div className='p-1 font-normal text-bg-2'>
-              <h3 className='whitespace-break-spaces line-clamp-3 !m-0 md:!text-lg !text-sm'>
+              <h3 className='whitespace-break-spaces line-clamp-2 !m-0 md:!text-lg !text-sm'>
                 {title}
               </h3>
               <p className='!text-xs !mt-1'>{host}</p>
