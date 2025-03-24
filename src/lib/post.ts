@@ -9,11 +9,13 @@ export type Post = {
     createdAt: string
     updatedAt: string
     thumbnail: string
+    isNew: boolean
+    isUpdated: boolean
   }
   content: string
 }
 
-export const getAllPosts = () => {
+export const getAllPosts = (): Post[] => {
   const postsDir = path.join(process.cwd(), '/src/posts')
   const files = fs.readdirSync(postsDir)
   const posts = files
@@ -49,6 +51,20 @@ export const getAllPosts = () => {
         thumbnail: data.thumbnail
           ? String(data.thumbnail)
           : '/images/pencil01.svg',
+        isNew: false,
+        isUpdated: false,
+      }
+
+      const basisDate = new Date(new Date().setDate(new Date().getDate() - 14))
+
+      const isNew = new Date(data.createdAt) > basisDate
+      if (isNew) {
+        formattedData.isNew = true
+      }
+
+      const isUpdated = new Date(data.updatedAt) > basisDate
+      if (isUpdated && !isNew) {
+        formattedData.isUpdated = true
       }
 
       return {

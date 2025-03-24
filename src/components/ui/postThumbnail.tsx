@@ -1,7 +1,4 @@
-import randomGradient from '@/lib/randomGradient'
 import Image from 'next/image'
-
-const gradient = randomGradient()
 
 export default ({
   thumbnail = '/images/pencil01.svg',
