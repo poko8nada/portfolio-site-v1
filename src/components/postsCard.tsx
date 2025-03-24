@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { LabelNew, LabelUpdate } from './ui/labels'
 import PostThumbnail from './ui/postThumbnail'
 
 export default ({
@@ -8,11 +9,17 @@ export default ({
   isHome,
 }: {
   slug: string
-  formattedData: { title: string; createdAt: string; thumbnail: string }
+  formattedData: {
+    title: string
+    createdAt: string
+    thumbnail: string
+    isNew: boolean
+    isUpdated: boolean
+  }
   index: number
   isHome?: boolean
 }) => {
-  const { title, createdAt, thumbnail } = formattedData
+  const { title, createdAt, thumbnail, isNew, isUpdated } = formattedData
   const articleClass =
     'bg-fg flex items-center justify-center rounded-lg min-h-28 relative'
   const linkClass =
@@ -27,11 +34,8 @@ export default ({
           : `${articleClass}`
       }
     >
-      {index === 0 && (
-        <div className='absolute inline-flex items-center justify-center p-1 w-8 h-5 md:w-10 text-xs text-white bg-red-500 rounded-md md:rounded-xl md:start-2 md:top-2 top-1 start-1'>
-          new
-        </div>
-      )}
+      {isNew && <LabelNew />}
+      {isUpdated && <LabelUpdate />}
       <Link
         href={`/posts/${slug}`}
         className={!isHome ? `flex-col py-5 ${linkClass}` : `py-3 ${linkClass}`}
