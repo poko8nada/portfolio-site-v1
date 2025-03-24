@@ -63,7 +63,7 @@ export const getAllPosts = (): Post[] => {
       }
 
       const isUpdated = new Date(data.updatedAt) > basisDate
-      if (isUpdated) {
+      if (isUpdated && !isNew) {
         formattedData.isUpdated = true
       }
 
