@@ -9,7 +9,13 @@ const toolsCard = ({
   return (
     <div className='max-w-md bg-bg border-1 border-fg rounded-lg shadow-sm flex'>
       <div className='p-2 border-r-1 border-fg flex items-center'>
-        <Image src={img} alt='' width={110} height={110} />
+        <Image
+          src={img}
+          alt=''
+          width={110}
+          height={110}
+          className='rounded-md'
+        />
       </div>
       <div className='p-2 flex flex-col'>
         <a
