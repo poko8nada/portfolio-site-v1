@@ -55,14 +55,16 @@ export const getAllPosts = (): Post[] => {
         isUpdated: false,
       }
 
-      const basisDate = new Date(new Date().setDate(new Date().getDate() - 14))
+      const today = new Date()
+      const twoWeeksAgo = new Date(today)
+      twoWeeksAgo.setDate(today.getDate() - 14)
 
-      const isNew = new Date(data.createdAt) > basisDate
+      const isNew = new Date(data.createdAt) > twoWeeksAgo
       if (isNew) {
         formattedData.isNew = true
       }
 
-      const isUpdated = new Date(data.updatedAt) > basisDate
+      const isUpdated = new Date(data.updatedAt) > twoWeeksAgo
       if (isUpdated && !isNew) {
         formattedData.isUpdated = true
       }
