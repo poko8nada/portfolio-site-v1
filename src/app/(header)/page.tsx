@@ -78,10 +78,10 @@ export default function Home() {
         <SectionHeader>tools</SectionHeader>
         <div className='p-2'>
           <ToolsCard
-            title='カードタイプのリンクジェネレーター'
-            description='ブログに埋め込むカードタイプのリンクを簡単に作成することができます'
-            img='/images/card.svg'
-            link='https://cardlink-generator-v1.vercel.app/'
+            title='Blog Card Maker | ブログカードメーカー'
+            description='指定したURLからOGPを取得して、ブログにリンクカードを簡単に追加できるサービスです。'
+            img='/images/BCMlogo.png'
+            link='https://link-card-generator-v2.vercel.app'
           />
         </div>
       </SectionBody>
