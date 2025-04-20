@@ -1,15 +1,17 @@
 import PostsCard from '@/components/postsCard'
 import SectionBody from '@/components/sectionBody'
+import { getAllPosts } from '@/lib/post'
 import type { Metadata } from 'next'
 
-import { getAllPosts } from '@/lib/post'
+export const runtime = 'edge'
 
 export const metadata: Metadata = {
   title: 'blog | pokoHanadaCom',
 }
 
+const allPosts = getAllPosts()
+
 export default () => {
-  const allPosts = getAllPosts()
   return (
     <>
       <SectionBody>

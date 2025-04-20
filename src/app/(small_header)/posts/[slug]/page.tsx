@@ -3,13 +3,11 @@ import PostFooter from '@/components/postFooter'
 import PostHeader from '@/components/postHeader'
 
 import SectionBody from '@/components/sectionBody'
-import { type Post, getAllPosts } from '@/lib/post'
+import { type Post, getAllPosts, getPostsBySlug } from '@/lib/post'
 import { notFound } from 'next/navigation'
 
-const allPosts: Post[] = getAllPosts()
-
 export function generateStaticParams() {
-  return allPosts.map(({ slug }) => {
+  return getAllPosts().map(({ slug }) => {
     return { slug }
   })
 }
@@ -19,7 +17,7 @@ export async function generateMetadata({
 }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug
 
-  const post = allPosts.find(post => post.slug === slug)
+  const post = getPostsBySlug(slug)
   return {
     title: `${post?.formattedData.title} | pokoHanadaCom`,
     canonical: `https://pokohanada.com/posts/${slug}`,
@@ -44,8 +42,9 @@ export default async function Page({
   params: Promise<{ slug: string }>
 }) {
   const slug = (await params).slug
+  const allPosts = getAllPosts()
 
-  const post = allPosts.find(post => post.slug === slug)
+  const post = getPostsBySlug(slug)
   const content: string | undefined = post?.content
 
   if (!post) {
@@ -61,6 +60,7 @@ export default async function Page({
     <>
       <SectionBody>
         <PostHeader post={post} />
+        {/* {post.content} */}
         <PostBody content={content as string} />
         {allPosts.length <= 1 ? null : (
           <PostFooter prevPost={prevPost} nextPost={nextPost} />

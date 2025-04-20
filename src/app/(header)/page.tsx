@@ -3,12 +3,15 @@ import SectionBody from '@/components/sectionBody'
 import SectionHeader from '@/components/sectionHeader'
 import ToolsCard from '@/components/toolsCard'
 import Button from '@/components/ui/button'
-import { getTopPosts } from '@/lib/post'
+import { getAllPosts } from '@/lib/post'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const runtime = 'edge'
+
+const topPosts = getAllPosts().slice(0, 4)
+
 export default function Home() {
-  const topPosts = getTopPosts()
   return (
     <>
       <SectionBody>
