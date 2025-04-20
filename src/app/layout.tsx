@@ -3,6 +3,8 @@ import './globals.css'
 import Footer from '@/components/footer'
 import { GoogleTagManager } from '@next/third-parties/google'
 
+export const runtime = 'edge'
+
 export const metadata: Metadata = {
   title: 'pokoHanadaCom | freelance Web developer',
   description:
