@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ClassAttributes, HTMLAttributes } from 'react'
-import type { ExtraProps } from 'react-markdown'
+// import type { ExtraProps } from 'react-markdown'
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight'
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
@@ -12,9 +12,11 @@ const getType = (matchStr: string | undefined) => {
 export default ({
   children,
   className,
-}: ClassAttributes<HTMLElement> & HTMLAttributes<HTMLElement> & ExtraProps) => {
-  const match = /language-(\w+)/.exec(className || '')
+}: ClassAttributes<HTMLElement> & HTMLAttributes<HTMLElement>) => {
+  const match = /lang-(\w+)/.exec(className || '')
   const embedType = getType(match?.[1])
+
+  console.log(className)
 
   const getData = (
     children: string,
@@ -55,7 +57,7 @@ export default ({
           >
             {image && (
               <div className='max-w-[160px] md:max-w-[220px] !bg-bg-1 rounded-l-md shrink-0'>
-                <Image
+                <img
                   src={image}
                   alt={title}
                   width={200}
@@ -82,7 +84,7 @@ export default ({
               className=''
             >
               {image && (
-                <Image
+                <img
                   src={image}
                   alt={title}
                   width={150}
@@ -107,7 +109,7 @@ export default ({
       case 'Callout':
         return (
           <div className='flex gap-1 !bg-[#011627] p-3'>
-            <Image
+            <img
               src='/images/posts/bulb.svg'
               alt={title}
               width={36}
