@@ -1,21 +1,10 @@
-import type { NextConfig } from "next";
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev'
+import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  // ↓↓静的ビルドする場合はコメントを外す
-  output: 'export',
-  trailingSlash: true,
-  images: { unoptimized: true },
-  // ↑↑静的ビルドする場合はコメントを外す
+const nextConfig: NextConfig = {}
 
-  // async redirects() {
-  //     return [
-  //       {
-  //         source: '/',
-  //         destination: '/posts',
-  //         permanent: false,
-  //       },
-  //     ]
-  //   },
-};
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform()
+}
 
-module.exports = nextConfig
+export default nextConfig
