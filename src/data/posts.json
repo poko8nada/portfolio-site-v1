@@ -1,12 +1,24 @@
 [
   {
+    "slug": "2025-04-24",
+    "formattedData": {
+      "title": "ブログに使えるリンクカード生成サービスver2をつくりました",
+      "createdAt": "2025-04-24",
+      "updatedAt": "2025-04-24",
+      "thumbnail": "/images/posts/pc02.svg",
+      "isNew": false,
+      "isUpdated": false
+    },
+    "content": "\n## はじめに\n\n[以前の記事](/posts/2025-03-03/)で紹介した「ブログに使えるカード風のリンクジェネレーター」をリニューアルしましたので、紹介します。\n\n## ツール紹介\n\n### 概要\n\n新しいバージョンの「リンクカード生成サービス」は、デザインと使いやすさの向上を目指しました。以下のURLからアクセスできます。\n\n```Link\nBlog Card Maker | ブログを彩る美しいリンクカード\nlink-card-generator-v2.vercel.app\nhttps://link-card-generator-v2.vercel.app\nhttps://link-card-generator-v2.vercel.app/ogp-image.png\n```\n\n### 主な特徴\n\n旧バージョンと同じようにURLを入力するだけで、リンクカードを生成します。\n\n今回はカードのレスポンシブ対応にも力を入れました。\n\nまた生成されたHTMLとCSSは、コピーボタンをクリックしていただければ、そのままペーストして利用可能です。\n\n## 技術スタック\n\n前回のバージョンと同様に、Next.jsをベースとして開発しています。\n\nサイトのコンポーネントには、扱いやすい[shadcn/ui](https://ui.shadcn.com/)を採用しました。またグリッドパターンの背景を導入したくて[Magic UI](https://magicui.design/)も使用しています。\n\n\n実は新バージョンを作るきっかけになったのは、Amazonと楽天市場のカード生成がうまくいかなかったためです。\n\nそこで、OGP情報を取得するためロジックを見直し、パッケージの変更を以下のとおりに行いました。\n\n- OGP情報取得：[jsdom](https://github.com/jsdom/jsdom)\n- HTMLパーサー：[html-react-parser](https://www.npmjs.com/package/html-react-parser)\n\nこれにより、amazonと楽天市場をはじめとして、より多くのサイトに対応できるようになりました。カード生成のスピードも向上したと思います。\n\nソースコードは下記のとおりです。\n```Link\npoko8nada/link-card-generator-v2\ngithub.com\nhttps://github.com/poko8nada/link-card-generator-v2\nhttps://opengraph.githubassets.com/b13723efae47ff8af2dc1a546b74b826a5abadd00983f8629891f35e1e2c329f/poko8nada/link-card-generator-v2\n```\n\n\n## おわりに\n今後は「カラーテーマ」や「デザインテンプレート」などを増やせればいいなと思っています。\n\nぜひ新しいバージョンを試していただき、ご意見やフィードバックをいただければ幸いです。\n\nではまた。\n"
+  },
+  {
     "slug": "2025-04-10",
     "formattedData": {
       "title": "ブログ記事にラベルを追加しました",
       "createdAt": "2025-04-10",
       "updatedAt": "2025-04-10",
       "thumbnail": "/images/posts/pc03.svg",
-      "isNew": true,
+      "isNew": false,
       "isUpdated": false
     },
     "content": "\n## はじめに\n\n当ブログでは、前の記事も更新があれば、ちょこちょこ手を加えようと思い、あらかじめ記事の作成日と更新日をそれぞれ管理していました。\n\nせっかく管理しているので、新規投稿や更新を一目で分かるように、記事一覧に「New」と「Update」のラベルを追加することにします。\n\n## 実装方法\n\n### 基本的な考え方\n\nラベルの表示条件は以下のとおりです。\n\n- **New**：記事の作成日が、ビルド時点で14日以内の場合\n- **Update**：過去記事のみ。記事の更新日が、ビルド時点で14日以内の場合\n\n### 実装\n\n記事はマークダウン形式なのですが、パースする際に、各記事に対して `isNew` と `isUpdate` の2つのフラグを追加します。\n\n```javascript\nexport function getAllPosts(): Post[] {\n  ⋮\n\n  const today = new Date()\n  const twoWeeksAgo = new Date(today)\n  twoWeeksAgo.setDate(today.getDate() - 14)\n\n  const isNew = new Date(data.createdAt) > twoWeeksAgo\n  if (isNew) {\n    formattedData.isNew = true\n  }\n\n  const isUpdated = new Date(data.updatedAt) > twoWeeksAgo\n  if (isUpdated && !isNew) {\n    formattedData.isUpdated = true\n  }\n\n  ⋮\n}\n```\n\n### JSX側での表示\n\n記事一覧のコンポーネントで、フラグに応じてラベルを表示します。\n\n```jsx\nfunction PostCard({slug, formattedData}) {\n  return (\n    <article>\n      ⋮\n      {isNew && <LabelNew />}\n      {isUpdated && <LabelUpdate />}\n      ⋮\n    </article>\n  )\n}\n```\n\n### スタイリング\n\nTailwindCSSを使用し、ベースとなるスタイルは共通化しています。\n\n```jsx\nconst baseClass =\n  'absolute inline-flex items-center justify-center p-2 h-5 text-xs text-white rounded-md md:start-2 md:top-2 top-1 start-1'\nconst LabelNew = () => {\n  return <div className={`${baseClass} bg-red-500`}>new</div>\n}\nconst LabelUpdate = () => {\n  return <div className={`${baseClass} bg-blue-500`}>update</div>\n}\n\nexport { LabelNew, LabelUpdate }\n```\n\nかなりシンプルですが、見た目は以下のとおりです。\n\n![記事ラベルの表示例](/images/posts/2025-04-09_01.png)\n\n## 注意点\n\n基本的に日付の計算には注意が必要です。意図しないタイムゾーンの場合、表示結果に差が出る可能性があります。\n\nまた、本ブログはNext.js でSSGを使用しています。当たり前ですが、ビルド時点で計算されるため、その日で固定されます。\n\n私のブログは2週間に一回程度は手をいれるので、ひとまずこれで良いかなと思います。  \n気になるようなら定期的なビルドやISRの活用を検討するかもしれません。\n\n## まとめ\n\n「New」と「Update」のラベルを追加する実装方法を紹介しました。  \nシンプルな実装ですが、新着情報や更新情報が一目で分かるようになります。\n\n今後は、ラベルのアニメーション効果や、より柔軟な更新情報（n日前に更新など）の表示も検討していきたいと思います。\n\nではまた。"
@@ -19,7 +31,7 @@
       "updatedAt": "2025-04-10",
       "thumbnail": "/images/posts/pc02.svg",
       "isNew": false,
-      "isUpdated": true
+      "isUpdated": false
     },
     "content": "\n（25/04/10追記）  \n新バージョンをデプロイしましたので、下記サービスは終了しました。新しいサービスは[こちら](https://link-card-generator-v2.vercel.app/)\n\n\n\n\n## はじめに\n[以前の記事](/posts/2024-12-25/)で、当ブログでは「ブログカード」や「カードリンク」的な機能がなかったため、自前でそういった機能を作成したことを書きました。\n\nその流れで、より一般的に使えるwebツールがあっても良いなと思いたち、作成しましたので紹介します。\n\n## ツール紹介\n### 概要\nそういった便利なwebサービスが、すでに複数あることはもちろん承知しています。  \nですので、カードデザインなど自分なりに少しだけ独自性を出しました。\n\n（25/04/10追記）新バージョンをデプロイしましたので、下記サービスは終了しました。  \n~ブログカード風のリンクジェネレーター~  \n~https://cardlink-generator-v1.vercel.app/~  \n\n\n### 使い方\n1. URLを入力すると、自動的にリンクを生成します(失敗することもあります)。\n2. カードデザインは4種類です。お好みのデザインの「Code」タブをクリックすると、htmlコードが表示されます。\n3. コード右上の![image](/images/posts/2025-03-03_01_inline.png)マークをクリックすれば、htmlコードがクリップボードにコピーされます。\n4. そのままご自由にペーストしてご利用ください。\n\n### カスタマイズ\nそのままでも利用できますが、ヘッダーのボタンで、カードカラーのテーマを白(light)とグレー(dark)に切り替えることができます。\n\nまたトグルボタンで、それぞれのテーマでボーダーの有無を変更できます。  \nhtmlコードもそれに合わせて書き換わりますので、カスタマイズした後に改めてコピーしてください。\n\nタイトルやファビコンなどの文字列データもありますので、あわせて活用いただければと思います。\n\n## 技術スタック\n簡単に紹介します。  \nnext.jsをベースとして基本方針として追加するパッケージは最小限にとどめました。\nソースコードは下記のとおりです。\n\n```Link\npoko8nada/cardlink-generator-v1\ngithub.com\nhttps://github.com/poko8nada/cardlink-generator-v1\nhttps://opengraph.githubassets.com/4998eb64487274f971fab39fd5f327134ded4ab40565ce0728fa1312f281aede/poko8nada/cardlink-generator-v1\n```\n\n### openGraphScraper\nこのツールの根幹として、URLからOGPを取得するため、[openGraphScraper](https://www.npmjs.com/package/open-graph-scraper)を使っています。\n\n### HeroUI(ex. NextUI)\nUIコンポーネントには[HeroUI](https://heroui.com/)を使っています。  \n学習コストも低く、デザインもある程度いい感じにサイトができあがるので良いです。\n\n\n### tw-to-css\nhtmlコードにTailwindCSSをインラインCSSに展開するため、[tw-to-css](https://www.npmjs.com/package/tw-to-css)を利用しました。\n\n\n## おわりに\n実は、OGPがうまく取得できないサイトがまだちょこちょこあります。正直、完成度としては「まあまあ使えるかな」程度です。\n\nこのあたりもアップデートできればなと思います。\n\nではまた。\n"
   },
