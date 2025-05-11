@@ -4,7 +4,7 @@ import { StH2, StH3, StP } from './post-strike-through'
 
 export default ({ content }: { content: string }) => {
   return (
-    <article className='markdown-body article_container rounded-lg py-20 md:px-12 w-full'>
+    <article className='markdown-body article_container rounded-lg py-20 px-4 md:px-12 w-full'>
       <Markdown
         options={{
           overrides: {

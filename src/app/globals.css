@@ -132,9 +132,11 @@ body > * {
 }
 
 .article_container ul {
+  padding-left: 1em;
   list-style: circle;
 }
 .article_container ol {
+  padding-left: 1em;
   list-style: auto;
 }
 

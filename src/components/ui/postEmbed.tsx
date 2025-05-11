@@ -50,7 +50,7 @@ export default ({
       case 'Link':
         return (
           <Link
-            className='w-full !bg-fg flex items-stretch rounded-lg p-1 gap-1 !decoration-bg max-w-[700px] mx-auto'
+            className='w-full !bg-fg flex items-stretch rounded-lg p-1 gap-1 !decoration-bg max-w-[700px] mx-auto hover:underline'
             href={url}
             target='_blank'
             rel='noopener noreferrer'
@@ -97,7 +97,7 @@ export default ({
               href={url}
               target='_blank'
               rel='noopener noreferrer'
-              className='p-1 font-normal !text-bg-2'
+              className='p-1 font-normal !text-bg-2 hover:underline'
             >
               <h3 className='text-center whitespace-break-spaces line-clamp-2 !m-0 !text-md'>
                 {title}
@@ -115,7 +115,9 @@ export default ({
               width={36}
               height={36}
             />
-            <p className='!m-0 break-all whitespace-break-spaces'>{children}</p>
+            <p className='!m-0 break-all whitespace-break-spaces text-sm'>
+              {children}
+            </p>
           </div>
         )
     }
