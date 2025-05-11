@@ -56,21 +56,21 @@ export default ({
             rel='noopener noreferrer'
           >
             {image && (
-              <div className='max-w-[160px] md:max-w-[220px] !bg-bg-1 rounded-l-md shrink-0'>
+              <div className='max-w-[120px] md:max-w-[220px] !bg-bg-1 rounded-l-md shrink-0'>
                 <img
                   src={image}
                   alt={title}
                   width={200}
                   height={200}
-                  className='object-contain max-h-[110px] w-full h-full rounded-l-md object-center'
+                  className='object-cover max-h-[110px] w-full h-full rounded-l-md object-center'
                 />
               </div>
             )}
             <div className='p-1 font-normal text-bg-2'>
-              <h3 className='whitespace-break-spaces line-clamp-2 !m-0 md:!text-lg !text-sm'>
+              <h3 className='whitespace-pre-line line-clamp-2 !m-0 md:!text-lg !text-sm'>
                 {title}
               </h3>
-              <p className='!text-xs !mt-1'>{host}</p>
+              <p className='whitespace-pre-line !text-xs !mt-1'>{host}</p>
             </div>
           </Link>
         )
@@ -115,7 +115,7 @@ export default ({
               width={36}
               height={36}
             />
-            <p className='!m-0 break-all whitespace-break-spaces text-sm'>
+            <p className='!m-0 break-all whitespace-break-spaces !text-sm'>
               {children}
             </p>
           </div>

@@ -70,13 +70,23 @@ body > * {
 }
 
 :root {
-  --article-basic-font-size: 16px;
+  --article-basic-font-size: 1rem;
 }
 
 .article_container {
   line-height: 1.8 !important;
   background: #22232f !important;
   overflow: hidden;
+}
+
+.article_container > div * {
+  font-size: var(--article-basic-font-size);
+}
+
+@media (width <= 40rem) {
+  .article_container > div * {
+    font-size: calc(var(--article-basic-font-size) * 0.95);
+  }
 }
 
 .article_container > div > h1,
