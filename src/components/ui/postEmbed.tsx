@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ClassAttributes, HTMLAttributes } from 'react'
-import type { ExtraProps } from 'react-markdown'
+// import type { ExtraProps } from 'react-markdown'
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight'
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
@@ -12,9 +12,11 @@ const getType = (matchStr: string | undefined) => {
 export default ({
   children,
   className,
-}: ClassAttributes<HTMLElement> & HTMLAttributes<HTMLElement> & ExtraProps) => {
-  const match = /language-(\w+)/.exec(className || '')
+}: ClassAttributes<HTMLElement> & HTMLAttributes<HTMLElement>) => {
+  const match = /lang-(\w+)/.exec(className || '')
   const embedType = getType(match?.[1])
+
+  console.log(className)
 
   const getData = (
     children: string,
@@ -48,27 +50,27 @@ export default ({
       case 'Link':
         return (
           <Link
-            className='w-full !bg-fg flex items-stretch rounded-lg p-1 gap-1 !decoration-bg max-w-[700px] mx-auto'
+            className='w-full !bg-fg flex items-stretch rounded-lg p-1 gap-1 !decoration-bg max-w-[700px] mx-auto hover:underline'
             href={url}
             target='_blank'
             rel='noopener noreferrer'
           >
             {image && (
-              <div className='max-w-[160px] md:max-w-[220px] !bg-bg-1 rounded-l-md shrink-0'>
-                <Image
+              <div className='max-w-[120px] md:max-w-[220px] !bg-bg-1 rounded-l-md shrink-0'>
+                <img
                   src={image}
                   alt={title}
                   width={200}
                   height={200}
-                  className='object-contain max-h-[110px] w-full h-full rounded-l-md object-center'
+                  className='object-cover max-h-[110px] w-full h-full rounded-l-md object-center'
                 />
               </div>
             )}
             <div className='p-1 font-normal text-bg-2'>
-              <h3 className='whitespace-break-spaces line-clamp-2 !m-0 md:!text-lg !text-sm'>
+              <h3 className='whitespace-pre-line line-clamp-2 !m-0 md:!text-lg !text-sm'>
                 {title}
               </h3>
-              <p className='!text-xs !mt-1'>{host}</p>
+              <p className='whitespace-pre-line !text-xs !mt-1'>{host}</p>
             </div>
           </Link>
         )
@@ -82,7 +84,7 @@ export default ({
               className=''
             >
               {image && (
-                <Image
+                <img
                   src={image}
                   alt={title}
                   width={150}
@@ -95,7 +97,7 @@ export default ({
               href={url}
               target='_blank'
               rel='noopener noreferrer'
-              className='p-1 font-normal !text-bg-2'
+              className='p-1 font-normal !text-bg-2 hover:underline'
             >
               <h3 className='text-center whitespace-break-spaces line-clamp-2 !m-0 !text-md'>
                 {title}
@@ -107,13 +109,15 @@ export default ({
       case 'Callout':
         return (
           <div className='flex gap-1 !bg-[#011627] p-3'>
-            <Image
+            <img
               src='/images/posts/bulb.svg'
               alt={title}
               width={36}
               height={36}
             />
-            <p className='!m-0 break-all whitespace-break-spaces'>{children}</p>
+            <p className='!m-0 break-all whitespace-break-spaces !text-sm'>
+              {children}
+            </p>
           </div>
         )
     }

@@ -9,7 +9,7 @@ export default ({
   const prevPostSlug = prevPost?.slug
   const nextPostSlug = nextPost?.slug
 
-  const linkClass = 'hover:underline text-pr text-xs md:text-sm my-3'
+  const linkClass = 'hover:underline text-pr text-xs sm:text-sm my-3'
   return (
     <div className='px-4 md:px-8 w-full flex flex-col md:flex-row items-center justify-between'>
       {prevPostSlug && (

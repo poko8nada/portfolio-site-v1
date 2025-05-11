@@ -1,3 +1,4 @@
+import { cn } from '@/lib/cn'
 import Link from 'next/link'
 import { LabelNew, LabelUpdate } from './ui/labels'
 import PostThumbnail from './ui/postThumbnail'
@@ -23,7 +24,7 @@ export default ({
   const articleClass =
     'bg-fg flex items-center justify-center rounded-lg min-h-28 relative'
   const linkClass =
-    'flex w-full items-center justify-start gap-4 px-5 h-full hover:scale-105 transition-transform ease-in-out'
+    'flex w-full items-center justify-start gap-4 p-5 h-full hover:scale-105 transition-transform ease-in-out'
   const textClass = 'text-bg w-full flex flex-col h-full'
   return (
     <article
@@ -38,9 +39,20 @@ export default ({
       {isUpdated && <LabelUpdate />}
       <Link
         href={`/posts/${slug}`}
-        className={!isHome ? `flex-col py-5 ${linkClass}` : `py-3 ${linkClass}`}
+        className={
+          // !isHome || index === 0 ? `flex-col ${linkClass}` : `${linkClass}`
+          cn(`${linkClass}`, index === 0 && isHome && 'sm:flex-col')
+        }
       >
-        <PostThumbnail thumbnail={thumbnail} width={60} height={60} />
+        <PostThumbnail
+          thumbnail={thumbnail}
+          className={cn(
+            'w-[60px] h-[60px]',
+            index === 0 &&
+              isHome &&
+              'w-[60px] h-[60px] sm:w-[100px] sm:h-[100px]',
+          )}
+        />
         <div
           className={
             isHome
@@ -51,7 +63,7 @@ export default ({
           <p
             className={
               index === 0 && isHome
-                ? 'md:text-2xl hover:underline'
+                ? 'md:text-xl hover:underline'
                 : 'hover:underline'
             }
           >

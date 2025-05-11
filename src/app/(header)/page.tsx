@@ -3,12 +3,15 @@ import SectionBody from '@/components/sectionBody'
 import SectionHeader from '@/components/sectionHeader'
 import ToolsCard from '@/components/toolsCard'
 import Button from '@/components/ui/button'
-import { getTopPosts } from '@/lib/post'
+import { getAllPosts } from '@/lib/post'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const runtime = 'edge'
+
+const topPosts = getAllPosts().slice(0, 3)
+
 export default function Home() {
-  const topPosts = getTopPosts()
   return (
     <>
       <SectionBody>
@@ -48,7 +51,7 @@ export default function Home() {
       </SectionBody>
       <SectionBody>
         <SectionHeader>recent posts</SectionHeader>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:px-12 p-2'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 md:px-12 p-2'>
           {topPosts.map(({ slug, formattedData }, index) => {
             return (
               <PostsCard
