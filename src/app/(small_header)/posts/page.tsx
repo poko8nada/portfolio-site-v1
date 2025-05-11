@@ -20,7 +20,7 @@ export default () => {
         >
           <p>手を動かすwebディレクターの雑記です。</p>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-9 md:px-28 px-12 p-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-14 sm:px-18 p-4'>
           {allPosts.map(({ slug, formattedData }, index) => {
             return (
               <PostsCard
