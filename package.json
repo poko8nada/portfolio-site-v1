@@ -14,9 +14,10 @@
 		"deploy": "npm run pages:build && wrangler pages deploy"
 	},
 	"dependencies": {
+		"@cloudflare/next-on-pages": "^1.13.12",
 		"@next/third-parties": "^15.1.0",
 		"@tailwindcss/postcss": "^4.0.0",
-		"@cloudflare/next-on-pages": "^1.13.12",
+		"clsx": "^2.1.1",
 		"gray-matter": "^4.0.3",
 		"markdown-to-jsx": "^7.7.4",
 		"next": "^15.2.4",
