@@ -79,6 +79,10 @@ body > * {
   overflow: hidden;
 }
 
+.article_container > div > :first-child {
+  margin-top: 0 !important;
+}
+
 .article_container > div * {
   font-size: var(--article-basic-font-size);
 }

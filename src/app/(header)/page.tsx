@@ -1,97 +1,28 @@
-import PostsCard from '@/components/postsCard'
-import SectionBody from '@/components/sectionBody'
-import SectionHeader from '@/components/sectionHeader'
-import ToolsCard from '@/components/toolsCard'
-import Button from '@/components/ui/button'
-import { getAllPosts } from '@/lib/post'
-import Image from 'next/image'
-import Link from 'next/link'
+import DisplayHomePosts from '@/feature/display-home-posts'
+import DisplayHomeSection from '@/feature/display-home-section'
+import DisplaySns from '@/feature/display-sns'
+import DisplayToolCards from '@/feature/display-tool-cards'
 
 export const runtime = 'edge'
-
-const topPosts = getAllPosts().slice(0, 3)
 
 export default function Home() {
   return (
     <>
-      <SectionBody>
-        <SectionHeader>about</SectionHeader>
+      <DisplayHomeSection title='about me'>
         <p className='p-1 mt-2 text-center'>こんにちは。PokoHanadaです。</p>
         <p className='p-1 mt-2 text-center'>
           手を動かすwebディレクターです。
           <br />
           webエンジニア、ディベロッパーでもあります。
         </p>
-        <div className='flex flex-row items-center justify-center gap-8 mt-8'>
-          <Link
-            href='https://x.com/you88451h'
-            target='_blank'
-            className='hover:scale-125 ease-in-out transition-transform'
-          >
-            <Image
-              src='/images/x-logo.svg'
-              alt='xlogo'
-              width={26}
-              height={26}
-            />
-          </Link>
-          <Link
-            href='https://github.com/poko8nada'
-            target='_blank'
-            className='hover:scale-125 ease-in-out transition-transform'
-          >
-            <Image
-              src='/images/github-mark-white.svg'
-              alt='githublogo'
-              width={32}
-              height={30}
-            />
-          </Link>
-        </div>
-      </SectionBody>
-      <SectionBody>
-        <SectionHeader>recent posts</SectionHeader>
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 md:px-12 p-2'>
-          {topPosts.map(({ slug, formattedData }, index) => {
-            return (
-              <PostsCard
-                key={slug}
-                slug={slug}
-                formattedData={formattedData}
-                index={index}
-                isHome={true}
-              />
-            )
-          })}
-        </div>
-        <div className='mt-6'>
-          <Button href='/posts'>
-            すべての投稿を見る
-            <Image
-              src={'/images/arrow-next.svg'}
-              width={16}
-              height={16}
-              alt='arrow next'
-              className='inline ml-2'
-            />
-          </Button>
-        </div>
-      </SectionBody>
-      <SectionBody>
-        <SectionHeader>tools</SectionHeader>
-        <div className='p-2'>
-          <ToolsCard
-            title='Blog Card Maker | ブログカードメーカー'
-            description='指定したURLからOGPを取得して、ブログにリンクカードを簡単に追加できるサービスです。'
-            img='/images/BCMlogo.png'
-            link='https://link-card-generator-v2.vercel.app'
-          />
-        </div>
-      </SectionBody>
-      <SectionBody>
-        <SectionHeader>works</SectionHeader>
-        <p className='p-1 mt-1 text-center'>準備中…</p>
-      </SectionBody>
+        <DisplaySns />
+      </DisplayHomeSection>
+      <DisplayHomeSection title='recent posts'>
+        <DisplayHomePosts />
+      </DisplayHomeSection>
+      <DisplayHomeSection title='works & tools'>
+        <DisplayToolCards />
+      </DisplayHomeSection>
     </>
   )
 }
