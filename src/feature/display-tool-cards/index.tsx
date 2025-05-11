@@ -19,7 +19,7 @@ const cardsConfig = [
 
 export default function DisplayToolCards() {
   return (
-    <div className='p-2 grid grid-cols-1 sm:grid-cols-2 gap-4'>
+    <div className='p-2 grid grid-cols-1 sm:grid-cols-2 gap-4 md:px-12'>
       {cardsConfig.map(card => (
         <ToolsCard
           key={card.title}
