@@ -6,7 +6,7 @@ const cardsConfig = [
     description:
       'Markdownをリアルタイムでスライドに変換。エディタ・スライドビューア・PDF出力を備えたサービス。',
     img: '/images/SGlogo.svg',
-    link: 'https://slide-generator-v1.pages.dev',
+    link: 'https://slide-generator.you-88451-h.workers.dev',
   },
   {
     title: 'Blog Card Maker',
